@@ -181,7 +181,7 @@ variable "fd_aulapp_fe_name" {
 # front door routing rule foward configuration fowarding protocol
 variable "fd_aulapp_rr_fc_fp" {
   description = "the front door routing rule foward configuration fowarding protocol"
-  default     = "fd-aulapp-rr-fc-fp"
+  default     = "MatchRequest"
 }
 
 # front door routing rule foward configuration backend pool name
