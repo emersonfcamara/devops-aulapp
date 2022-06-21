@@ -173,7 +173,7 @@ resource "azurerm_frontdoor" "fd_aulapp" {
     name               = "${var.fd_aulapp_rr_name}"
     accepted_protocols = "${var.fd_aulapp_rr_ap}"
     patterns_to_match  = "${var.fd_aulapp_rr_patterns}"
-    frontend_endpoints = ["${var.fd_aulapp_fe_name}"]
+    frontend_endpoints = ["${var.fd_aulapp_name}"]
     forwarding_configuration {
       forwarding_protocol = "${var.fd_aulapp_rr_fc_fp}"
       backend_pool_name   = "${var.fd_aulapp_bp_name}"
