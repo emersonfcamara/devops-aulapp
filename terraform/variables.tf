@@ -5,6 +5,16 @@
 # Terraform code. If you create a variable with no default, the user will be
 # prompted to enter it (or define it via config file or command line flags.)
 
+variable "tfstate-container" {
+  description = "Tfstate container name."
+  default     = "tfstate"
+}
+
+variable "tfstate-key" {
+  description = "Tfstate key name."
+  default     = "terraform"
+}
+
 variable "resource_group_rg_infra" {
   description = "Resource group infra name."
   default     = "rg-infra"

@@ -5,6 +5,8 @@
 # Terraform code. If you create a variable with no default, the user will be
 # prompted to enter it (or define it via config file or command line flags.)
 
+tfstate-container = "tfstate"
+tfstate-key = "hml-state"
 resource_group_rg_infra = "rg-hml-infra"
 resource_group_rg_application = "rg-hml-application"
 resource_group_rg_cache = "rg-hml-cache"

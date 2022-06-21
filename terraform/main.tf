@@ -18,6 +18,12 @@ terraform {
       version = "=3.0.0"
     }
   }
+  backend "azurerm" {
+    resource_group_name  = "tfstate"
+    storage_account_name = "stcloudshellusers"
+    container_name       = "${var.tfstate-container}"
+    key                  = "${var.tfstate-key}.tfstate"
+  }
 }
 
 # Configure the Microsoft Azure Provider
