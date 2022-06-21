@@ -65,7 +65,7 @@ agw_ap_001_name = "agw-ap-hml-001"
 agw_ap_001_sku = "Standard_Small"
 
 # application gateway sku tier
-agw_ap_001_sku_tier = "Standard"
+agw_ap_001_sku_tier = "Standard_v2"
 
 # application gateway capacity
 agw_ap_001_capacity = "2"
@@ -126,11 +126,22 @@ agw_ap_001_rrr_priority = "10"
 # end of network variables
 
 # storage variables
+# storage account name for media files
 stamedia_name = "stahmlmedia"
+
+# storage account tier for media files
 stamedia_tier = "Standard"
+
+# storage account replica type for media files
 stamedia_replica_type = "LRS"
+
+# storage account name for spa site
 staspa_name = "stahmlspa"
+
+# storage account tier for spa site
 staspa_tier = "Standard"
+
+# storage account replica type for spa site
 staspa_replica_type = "LRS"
 # end of storage variables
 

@@ -46,38 +46,38 @@ variable "resource_group_rg_database" {
 # storage variables
 # storage account name for media files
 variable "stamedia_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "storage account name for media files"
+  default     = "stamedia"
 }
 
 # storage account tier for media files
 variable "stamedia_tier" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The storage account tier for media files"
+  default     = "Standard"
 }
 
 # storage account replica type for media files
 variable "stamedia_replica_type" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "storage account replica type for media files"
+  default     = "LRS"
 }
 
 # storage account name for spa site
 variable "staspa_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "storage account name for spa site"
+  default     = "staspa"
 }
 
 # storage account tier for spa site
 variable "staspa_tier" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "storage account tier for spa site"
+  default     = "Standard"
 }
 
 # storage account replica type for spa site
 variable "staspa_replica_type" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The storage account replica type for spa site"
+  default     = "LRS"
 }
 # end of storage variables
 
@@ -144,163 +144,145 @@ variable "pip_agw_ap_001_allocation_method" {
 
 # front door name
 variable "fd_aulapp_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The front door name"
+  default     = "fd-aulapp"
 }
 
 # front door sku
 variable "fd_aulapp_sku" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "front door sku"
+  default     = "Standard_AzureFrontDoor"
 }
 
 # application gateway name
 variable "agw_ap_001_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway name"
+  default     = "agw-ap-001"
 }
 
 # application gateway sku
 variable "agw_ap_001_sku" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway sku"
+  default     = "Standard_Small"
 }
 
 # application gateway sku tier
 variable "agw_ap_001_sku_tier" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway sku tier"
+  default     = "Standard_v2"
 }
 
 # application gateway capacity
 variable "agw_ap_001_capacity" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway capacity"
+  default     = "2"
 }
 
 # application gateway ip configuration
 variable "agw_ap_001_ip_conf" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway ip configuration"
+  default     = "agw-ap-001-ip-configuration"
 }
 
 # application gateway frontend port name
 variable "agw_ap_001_fp_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway frontend port name"
+  default     = "agw-ap-001-fp-name"
 }
 
 # application gateway frontend port number
 variable "agw_ap_001_fp_number" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway frontend port number"
+  default     = "80"
 }
 
 # application gateway frontend port ip name
 variable "agw_ap_001_fp_ip_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway frontend port ip name"
+  default     = "agw-ap-001-fp-ip-name"
 }
 
 # application gateway back address poll name
 variable "agw_ap_001_bap_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway back address poll name"
+  default     = "agw-ap-001-bap-name"
 }
 
 # application gateway backend https name
 variable "agw_ap_001_bhs_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway backend https name"
+  default     = "agw-ap-001-bhs-name"
 }
 
 # application gateway backend https cookie base affinity
 variable "agw_ap_001_bhs_cba" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway backend https cookie base affinity"
+  default     = "Disabled"
 }
 
 # application gateway backend https path
 variable "agw_ap_001_bhs_path" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway backend https path"
+  default     = "/"
 }
 
 # application gateway backend https port
 variable "agw_ap_001_bhs_port" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway backend https port"
+  default     = "80"
 }
 
 # application gateway backend https protocol
 variable "agw_ap_001_bhs_protocol" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway backend https protocol"
+  default     = "Http"
 }
 
 # application gateway backend https request timeout
 variable "agw_ap_001_bhs_rt" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway backend https request timeout"
+  default     = "60"
 }
 
 # application gateway http listener name
 variable "agw_ap_001_hl_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway http listener name"
+  default     = "agw-ap-001-hl-name"
 }
 
 # application gateway http listener front ip configuration name
 variable "agw_ap_001_hl_ficn" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway http listener front ip configuration name"
+  default     = "agw-ap-001-hl-ficn"
 }
 
 # application gateway http listener front port name
 variable "agw_ap_001_hl_port_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway http listener front port name"
+  default     = "agw-ap-001-hl-port-name"
 }
 
 # application gateway http listener protocol
 variable "agw_ap_001_hl_protocol" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway http listener protocol"
+  default     = "Http"
 }
 
 # application gateway request routing rule name
 variable "agw_ap_001_rrr_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway request routing rule name"
+  default     = "agw-ap-001-rrr-name"
 }
 
 # application gateway request routing rule type
 variable "agw_ap_001_rrr_rule_type" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
-}
-
-# application gateway request routing http listerner name
-variable "agw_ap_001_rrr_hl_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
-}
-
-# application gateway request routing pool name
-variable "agw_ap_001_rrr_pool_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
-}
-
-# application gateway request routing rule settings name
-variable "agw_ap_001_rrr_settings_name" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway request routing rule type"
+  default     = "Basic"
 }
 
 # application gateway request routing rule priority
 variable "agw_ap_001_rrr_priority" {
-  description = "The type to alocate the public ip resource."
-  default     = "Static"
+  description = "The application gateway request routing rule priority"
+  default     = "10"
 }
 # end of network variables
