@@ -55,6 +55,9 @@ pip_agw_ap_001_name = "pip-agw-ap-hml-001"
 # public ip allocation method for application gateway
 pip_agw_ap_001_allocation_method = "Dynamic"
 
+# public ip sku for application gateway
+pip_agw_ap_001_sku = "Standard"
+
 # front door name
 fd_aulapp_name = "fd-hml-aulapp"
 

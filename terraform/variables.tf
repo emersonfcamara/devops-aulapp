@@ -142,6 +142,12 @@ variable "pip_agw_ap_001_allocation_method" {
   default     = "Static"
 }
 
+# public ip sku for application gateway
+variable "pip_agw_ap_001_sku" {
+  description = "public ip sku for application gateway"
+  default     = "Standard"
+}
+
 # front door name
 variable "fd_aulapp_name" {
   description = "The front door name"
