@@ -32,7 +32,7 @@ variable "resource_group_rg_database" {
 
 variable "location" {
   description = "The region where the virtual network is created."
-  default     = "east-us-2"
+  default     = "eastus2"
 }
 
 variable "virtual_network_name" {
