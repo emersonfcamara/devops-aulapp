@@ -35,6 +35,8 @@ provider "azurerm" {
 # resource group. Think of it as a container to hold all your resources. 
 # You can find a complete list of Azure resources supported by Terraform here:
 # https://www.terraform.io/docs/providers/azurerm/
+
+# resource group section
 resource "azurerm_resource_group" "rg_infra" {
   name     = "${var.resource_group_rg_infra}"
   location = "${var.location}"
@@ -60,12 +62,16 @@ resource "azurerm_resource_group" "rg_database" {
   location = "${var.location}"
 }
 
+# end section of resource group
+
 # The next resource is a Virtual Network. We can dynamically place it into the
 # resource group without knowing its name ahead of time. Terraform handles all
 # of that for you, so everything is named consistently every time. Say goodbye
 # to weirdly-named mystery resources in your Azure Portal. To see how all this
 # works visually, run `terraform graph` and copy the output into the online
 # GraphViz tool: http://www.webgraphviz.com/
+
+# network section
 resource "azurerm_virtual_network" "vnet" {
   name                = "${var.virtual_network_name}"
   location            = "${azurerm_resource_group.rg_infra.location}"
@@ -157,15 +163,55 @@ resource "azurerm_storage_account" "staspa" {
   ]
 }
 
-resource "azurerm_cdn_frontdoor_profile" "fd_aulapp" {
+# Azure Front Door
+
+resource "azurerm_frontdoor" "fd_aulapp" {
   name                = "${var.fd_aulapp_name}"
   resource_group_name = "${azurerm_resource_group.rg_infra.name}"
-  sku_name            = "${var.fd_aulapp_sku}"
+
+  routing_rule {
+    name               = "${var.fd_aulapp_rr_name}"
+    accepted_protocols = "${var.fd_aulapp_rr_ap}"
+    patterns_to_match  = "${var.fd_aulapp_rr_patterns}"
+    frontend_endpoints = ["${var.fd_aulapp_fe_name}"]
+    forwarding_configuration {
+      forwarding_protocol = "${var.fd_aulapp_rr_fc_fp}"
+      backend_pool_name   = "${var.fd_aulapp_bp_name}"
+    }
+  }
+
+  backend_pool_load_balancing {
+    name = "${var.fd_aulapp_bplb}"
+  }
+
+  backend_pool_health_probe {
+    name = "${var.fd_aulapp_bphp}"
+  }
+
+  backend_pool {
+    name = "${var.fd_aulapp_bp_name}"
+    backend {
+      host_header = "${var.fd_aulapp_bp_bhh}"
+      address     = "${var.fd_aulapp_bp_ba}"
+      http_port   = "${var.fd_aulapp_bp_bhttp}"
+      https_port  = "${var.fd_aulapp_bp_bhttps}"
+    }
+
+    load_balancing_name = "${var.fd_aulapp_bplb}"
+    health_probe_name   = "${var.fd_aulapp_bphp}"
+  }
+
+  frontend_endpoint {
+    name      = "${var.fd_aulapp_fe_name}"
+    host_name = "${var.fd_aulapp_fe_hn}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_infra
   ]
 }
+
+# end of Azure Front Door
 
 resource "azurerm_application_gateway" "agw_ap_001" {
   name                = "${var.agw_ap_001_name}"
@@ -222,6 +268,8 @@ resource "azurerm_application_gateway" "agw_ap_001" {
     priority                   = "${var.agw_ap_001_rrr_priority}"
   }
 }
+
+# end of network section
 
 ##############################################################################
 # * Azure MySQL Database

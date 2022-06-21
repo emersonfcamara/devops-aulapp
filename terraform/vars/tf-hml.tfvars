@@ -61,8 +61,50 @@ pip_agw_ap_001_sku = "Standard"
 # front door name
 fd_aulapp_name = "fd-hml-aulapp"
 
-# front door sku
-fd_aulapp_sku = "Standard_AzureFrontDoor"
+# front door routing rule name
+fd_aulapp_rr_name = "fd-aulapp-rr-name"
+
+# front door routing rule accepeted protocol
+fd_aulapp_rr_ap = ["Http", "Https"]
+
+# front door routing rule accepeted patterns
+fd_aulapp_rr_patterns = ["/*"]
+
+# front door routing rule accepeted front end name
+fd_aulapp_fe_name = "fd-aulapp-fe-name"
+
+# front door routing rule foward configuration fowarding protocol
+fd_aulapp_rr_fc_fp = "fd-aulapp-rr-fc-fp"
+
+# front door routing rule foward configuration backend pool name
+fd_aulapp_bp_name = "fd-aulapp-bp-name"
+
+# front door backend pool load balancing name
+fd_aulapp_bplb = "fd-aulapp-bplb"
+
+# front door backend pool health probe
+fd_aulapp_bphp = "fd-aulapp-bphp"
+
+# front door backend pool health probe
+fd_aulapp_bp_name = "fd-aulapp-bp-name"
+
+# front door backend pool host header
+fd_aulapp_bp_bhh = "www.google.com"
+
+# front door backend pool address
+fd_aulapp_bp_ba = "www.google.com"
+
+# front door backend pool http port
+fd_aulapp_bp_bhttp = "80"
+
+# front door backend pool https port
+fd_aulapp_bp_bhttps = "443"
+
+# front door frontend name
+fd_aulapp_fe_name = "fd-aulapp-fe-name"
+
+# front door frontend host name
+fd_aulapp_fe_hn = "fd-aulapp-fe-hn.azurefd.net"
 
 # application gateway name
 agw_ap_001_name = "agw-ap-hml-001"

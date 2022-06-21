@@ -154,10 +154,94 @@ variable "fd_aulapp_name" {
   default     = "fd-aulapp"
 }
 
-# front door sku
-variable "fd_aulapp_sku" {
-  description = "front door sku"
-  default     = "Standard_AzureFrontDoor"
+# front door routing rule name
+variable "fd_aulapp_rr_name" {
+  description = "The front door routing rule name"
+  default     = "fd-aulapp-rr-name"
+}
+
+# front door routing rule accepeted protocol
+variable "fd_aulapp_rr_ap" {
+  description = "The front door routing rule accepeted protocol"
+  default     = ["Http", "Https"]
+}
+
+# front door routing rule accepeted patterns
+variable "fd_aulapp_rr_patterns" {
+  description = "The front door routing rule accepeted patterns"
+  default     = ["/*"]
+}
+
+# front door routing rule accepeted front end name
+variable "fd_aulapp_fe_name" {
+  description = "The front door routing rule accepeted front end name"
+  default     = "fd-aulapp-fe-name"
+}
+
+# front door routing rule foward configuration fowarding protocol
+variable "fd_aulapp_rr_fc_fp" {
+  description = "the front door routing rule foward configuration fowarding protocol"
+  default     = "fd-aulapp-rr-fc-fp"
+}
+
+# front door routing rule foward configuration backend pool name
+variable "fd_aulapp_bp_name" {
+  description = "The front door routing rule foward configuration backend pool name"
+  default     = "fd-aulapp-bp-name"
+}
+
+# front door backend pool load balancing name
+variable "fd_aulapp_bplb" {
+  description = "The front door backend pool load balancing name"
+  default     = "fd-aulapp-bplb"
+}
+
+# front door backend pool health probe
+variable "fd_aulapp_bphp" {
+  description = "The front door backend pool health probe "
+  default     = "fd-aulapp-bphp"
+}
+
+# front door backend pool health probe
+variable "fd_aulapp_bp_name" {
+  description = "The front door backend pool health probe"
+  default     = "fd-aulapp-bp-name"
+}
+
+# front door backend pool host header
+variable "fd_aulapp_bp_bhh" {
+  description = "The front door backend pool host header"
+  default     = "www.google.com"
+}
+
+# front door backend pool address
+variable "fd_aulapp_bp_ba" {
+  description = "The front door backend pool address"
+  default     = "www.google.com"
+}
+
+# front door backend pool http port
+variable "fd_aulapp_bp_bhttp" {
+  description = "The front door backend pool http port"
+  default     = "80"
+}
+
+# front door backend pool https port
+variable "fd_aulapp_bp_bhttps" {
+  description = "The front door backend pool https port"
+  default     = "443"
+}
+
+# front door frontend name
+variable "fd_aulapp_fe_name" {
+  description = "The front door frontend name"
+  default     = "fd-aulapp-fe-name"
+}
+
+# front door frontend host name
+variable "fd_aulapp_fe_hn" {
+  description = "The front door frontend host name"
+  default     = "fd-aulapp-fe-hn.azurefd.net"
 }
 
 # application gateway name
