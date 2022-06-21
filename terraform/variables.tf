@@ -403,3 +403,18 @@ variable "kv_ap_001_tenant_id" {
 }
 
 # end of section key vault
+
+# microsoft cdn profile section
+# microsoft cdn profile name
+variable "cdnp-001_name" {
+  description = "The microsoft cdn profile name"
+  default     = "cdnp-001"
+}
+
+# microsoft cdn profile sku
+variable "cdnp-001_sku" {
+  description = "The microsoft cdn profile sku"
+  default     = "Standard_Microsoft"
+}
+
+# end of microsoft cdn profile section

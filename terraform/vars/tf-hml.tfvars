@@ -207,3 +207,12 @@ kv_ap_001_sku = "standard"
 kv_ap_001_tenant_id = "b84fa403-e0cd-458c-b2e2-6538be09e2d8"
 
 # end of key vault section
+
+# microsoft cdn profile section
+# microsoft cdn profile name
+cdnp-001_name = "cdnp-hml-001"
+
+# microsoft cdn profile sku
+cdnp-001_sku  = "Standard_Microsoft"
+
+# end of microsoft cdn profile section

@@ -291,6 +291,21 @@ resource "azurerm_key_vault" "kv_ap_001" {
 
 # end of section key vault
 
+# microsoft cdn section
+
+resource "azurerm_cdn_profile" "cdnp-001" {
+  name                = "${var.cdnp-001_name}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.rg_security.name}"
+  sku                 = "${var.cdnp-001_sku}"
+
+  depends_on = [
+    azurerm_resource_group.rg_security
+  ]
+}
+
+# end of microsoft cdn section
+
 ##############################################################################
 # * Azure MySQL Database
 
