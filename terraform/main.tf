@@ -76,21 +76,21 @@ resource "azurerm_subnet" "snet_ap_hml_agw" {
   name                 = "${var.snet_ap_agw_name}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
-  address_prefix       = "${var.snet_ap_agw_prefix}"
+  address_prefixes     = ["${var.snet_ap_agw_prefix}"]
 }
 
 resource "azurerm_subnet" "snet_ap_hml_aks" {
   name                 = "${var.snet_ap_aks_name}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
-  address_prefix       = "${var.snet_ap_aks_prefix}"
+  address_prefixes     = ["${var.snet_ap_aks_prefix}"]
 }
 
 resource "azurerm_subnet" "snet_ap_hml_db" {
   name                 = "${var.snet_ap_db_name}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
-  address_prefix       = "${var.snet_ap_db_prefix}"
+  address_prefixes     = ["${var.snet_ap_db_prefix}"]
 }
 
 # Every Azure Virtual Machine comes with a private IP address. You can also 
