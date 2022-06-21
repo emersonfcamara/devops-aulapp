@@ -126,6 +126,7 @@ resource "azurerm_public_ip" "pip_agw_ap_001" {
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.rg_infra.name}"
   allocation_method            = "${var.pip_agw_ap_001_allocation_method}"
+  sku                          = "${var.pip_agw_ap_001_sku}"
 
   depends_on = [
     azurerm_resource_group.rg_infra
