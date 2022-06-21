@@ -498,7 +498,7 @@ variable "aks_ap_001_version" {
 # kubernetes node pool name
 variable "aks_ap_001_npn" {
   description = "The kubernetes node pool name"
-  default     = "Default"
+  default     = "default"
 }
 
 # kubernetes node pool node count

@@ -261,7 +261,7 @@ aks_ap_001_dns_prefix = "aks-ap-hml-001"
 aks_ap_001_version = "1.22.6"
 
 # kubernetes node pool name
-aks_ap_001_npn = "Default"
+aks_ap_001_npn = "default"
 
 # kubernetes node pool node count
 aks_ap_001_nc = "1"
