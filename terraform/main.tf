@@ -310,8 +310,8 @@ resource "azurerm_cdn_profile" "cdnp_001" {
 
 resource "azurerm_mssql_server" "mysql_001" {
   name                         = "${var.mysql_001_name}"
-  resource_group_name          = "${var.location}"
-  location                     = "${azurerm_resource_group.rg_database.name}"
+  resource_group_name          = "${azurerm_resource_group.rg_database.name}"
+  location                     = "${var.location}"
   version                      = "${var.mysql_001_version}"
   administrator_login          = "${var.mysql_001_admin_login}"
   administrator_login_password = "${var.mysql_001_admin_password}"
