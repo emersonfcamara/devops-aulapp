@@ -132,6 +132,95 @@ resource "azurerm_public_ip" "pip_agw_ap_001" {
   ]
 }
 
+resource "azurerm_storage_account" "stamedia" {
+  name                     = "${var.stamedia_name}"
+  resource_group_name      = "${azurerm_resource_group.rg_infra.name}"
+  location                 = "${var.location}"
+  account_tier             = "${var.stamedia_tier}"
+  account_replication_type = "${var.stamedia_replica_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
+}
+
+resource "azurerm_storage_account" "staspa" {
+  name                     = "${var.staspa_name}"
+  resource_group_name      = "${azurerm_resource_group.rg_infra.name}"
+  location                 = "${var.location}"
+  account_tier             = "${var.staspa_tier}"
+  account_replication_type = "${var.staspa_replica_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
+}
+
+resource "azurerm_cdn_frontdoor_profile" "fd_aulapp" {
+  name                = "${var.fd_aulapp_name}"
+  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  sku_name            = "${var.fd_aulapp_sku}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
+}
+
+resource "azurerm_application_gateway" "agw_ap_001" {
+  name                = "${var.agw_ap_001_name}"
+  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  location            = "${var.location}"
+
+  sku {
+    name     = "${var.agw_ap_001_sku}"
+    tier     = "${var.agw_ap_001_sku_tier}"
+    capacity = "${var.agw_ap_001_capacity}"
+  }
+
+  gateway_ip_configuration {
+    name      = "${var.agw_ap_001_ip_conf}"
+    subnet_id = "${azurerm_subnet.snet_ap_hml_agw.id}"
+  }
+
+  frontend_port {
+    name = "${var.agw_ap_001_fp_name}"
+    port = "${var.agw_ap_001_fp_number}"
+  }
+
+  frontend_ip_configuration {
+    name                 = "${var.agw_ap_001_fp_ip_name}"
+    public_ip_address_id = azurerm_public_ip.pip_agw_ap_001.id
+  }
+
+  backend_address_pool {
+    name = "${var.agw_ap_001_bap_name}"
+  }
+
+  backend_http_settings {
+    name                  = "${var.agw_ap_001_bhs_name}"
+    cookie_based_affinity = "${var.agw_ap_001_bhs_cba}"
+    path                  = "${var.agw_ap_001_bhs_path}"
+    port                  = "${var.agw_ap_001_bhs_port}"
+    protocol              = "${var.agw_ap_001_bhs_protocol}"
+    request_timeout       = "${var.agw_ap_001_bhs_rt}"
+  }
+
+  http_listener {
+    name                           = "${var.agw_ap_001_hl_name}"
+    frontend_ip_configuration_name = "${var.agw_ap_001_fp_ip_name}"
+    frontend_port_name             = "${var.agw_ap_001_fp_name}"
+    protocol                       = "${var.agw_ap_001_hl_protocol}"
+  }
+
+  request_routing_rule {
+    name                       = "${var.agw_ap_001_rrr_name}"
+    rule_type                  = "${var.agw_ap_001_rrr_rule_type}"
+    http_listener_name         = "${var.agw_ap_001_hl_name}"
+    backend_address_pool_name  = "${var.agw_ap_001_bap_name}"
+    backend_http_settings_name = "${var.agw_ap_001_bhs_name}"
+    priority                   = "${var.agw_ap_001_rrr_priority}"
+  }
+}
 
 ##############################################################################
 # * Azure MySQL Database
