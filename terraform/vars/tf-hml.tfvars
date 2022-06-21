@@ -53,7 +53,7 @@ snet_ap_db_prefix = "10.5.0.0/24"
 pip_agw_ap_001_name = "pip-agw-ap-hml-001"
 
 # public ip allocation method for application gateway
-pip_agw_ap_001_allocation_method = "Dynamic"
+pip_agw_ap_001_allocation_method = "Static"
 
 # public ip sku for application gateway
 pip_agw_ap_001_sku = "Standard"
