@@ -202,12 +202,6 @@ variable "fd_aulapp_bphp" {
   default     = "fd-aulapp-bphp"
 }
 
-# front door backend pool health probe
-variable "fd_aulapp_bp_name" {
-  description = "The front door backend pool health probe"
-  default     = "fd-aulapp-bp-name"
-}
-
 # front door backend pool host header
 variable "fd_aulapp_bp_bhh" {
   description = "The front door backend pool host header"
@@ -230,12 +224,6 @@ variable "fd_aulapp_bp_bhttp" {
 variable "fd_aulapp_bp_bhttps" {
   description = "The front door backend pool https port"
   default     = "443"
-}
-
-# front door frontend name
-variable "fd_aulapp_fe_name" {
-  description = "The front door frontend name"
-  default     = "fd-aulapp-fe-name"
 }
 
 # front door frontend host name
