@@ -331,6 +331,10 @@ resource "azurerm_user_assigned_identity" "aks_ap_001_id" {
   location            = "${var.location}"
 
   name = "${var.aks_ap_001_id_name}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application
+  ]
 }
 
 # end of user assigned identity section
@@ -342,9 +346,50 @@ resource "azurerm_application_insights" "appi_ap_001" {
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.rg_application.name}"
   application_type    = "${var.appi_ap_001_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application
+  ]
 }
 
 # end of application insights section
+
+# kubernetes section
+
+resource "azurerm_kubernetes_cluster" "aks_ap_001" {
+  name                = "${var.aks_ap_001_name}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  dns_prefix          = "${var.aks_ap_001_dns_prefix}"
+  kubernetes_version  = "${var.aks_ap_001_version}"
+  
+
+  default_node_pool {
+    name           = "${var.aks_ap_001_npn}"
+    node_count     = "${var.aks_ap_001_nc}"
+    vm_size        = "${var.aks_ap_001_vm_size}"
+    vnet_subnet_id = "${azurerm_subnet.snet_ap_hml_aks.id}"
+  }
+
+  identity {
+    type         = "${var.aks_ap_001_identity}"
+    identity_ids = ["${azurerm_user_assigned_identity.aks_ap_001_id.id}"]
+  }
+
+  ingress_application_gateway {
+    gateway_id = "${azurerm_application_gateway.agw_ap_001.id}"
+  }
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_application_insights.appi_ap_001,
+    azurerm_user_assigned_identity.aks_ap_001_id,
+    azurerm_subnet.snet_ap_hml_aks,
+    azurerm_application_gateway.agw_ap_001
+  ]
+}
+
+# end of kubernenetes section
 
 ##############################################################################
 # * Azure MySQL Database

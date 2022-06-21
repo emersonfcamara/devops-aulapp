@@ -465,7 +465,7 @@ variable "aks_ap_001_id_name" {
 # application insights name
 variable "appi_ap_001_name" {
   description = "The application insights name"
-  default     = "appi-ap-hml-001"
+  default     = "appi-ap-001"
 }
 
 # application insights application type
@@ -475,3 +475,48 @@ variable "appi_ap_001_type" {
 }
 
 # end of application insights section
+
+# kubernetes section
+# kubernetes name
+variable "aks_ap_001_name" {
+  description = "The kubernetes name"
+  default     = "aks-ap-001"
+}
+
+# kubernetes dns prefix
+variable "aks_ap_001_dns_prefix" {
+  description = "The kubernetes dns prefix"
+  default     = "aks-ap-001"
+}
+
+# kubernetes version
+variable "aks_ap_001_version" {
+  description = "The kubernetes version"
+  default     = "1.21.2"
+}
+
+# kubernetes node pool name
+variable "aks_ap_001_npn" {
+  description = "The kubernetes node pool name"
+  default     = "Default"
+}
+
+# kubernetes node pool node count
+variable "aks_ap_001_nc" {
+  description = "The kubernetes node pool node count"
+  default     = "1"
+}
+
+# kubernetes node pool vm tier
+variable "aks_ap_001_vm_size" {
+  description = "The kubernetes node pool vm tier"
+  default     = "Standard_D2_v2"
+}
+
+# kubernetes identity type
+variable "aks_ap_001_identity_type" {
+  description = "The kubernetes identity type"
+  default     = "UserAssigned"
+}
+
+# end of kubernenetes section

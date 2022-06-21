@@ -249,3 +249,27 @@ appi_ap_001_name = "appi-ap-hml-001"
 appi_ap_001_type = "Node.JS"
 
 # end of application insights section
+
+# kubernetes section
+# kubernetes name
+aks_ap_001_name = "aks-ap-hml-001"
+
+# kubernetes dns prefix
+aks_ap_001_dns_prefix = "aks-ap-hml-001"
+
+# kubernetes version
+aks_ap_001_version = "1.22.6"
+
+# kubernetes node pool name
+aks_ap_001_npn = "Default"
+
+# kubernetes node pool node count
+aks_ap_001_nc = "1"
+
+# kubernetes node pool vm tier
+aks_ap_001_vm_size = "Standard_D2_v2"
+
+# kubernetes identity type
+aks_ap_001_identity_type = "UserAssigned"
+
+# end of kubernenetes section
