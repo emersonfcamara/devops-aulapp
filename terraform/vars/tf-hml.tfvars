@@ -52,6 +52,9 @@ snet_ap_db_prefix = "10.5.0.0/24"
 # public ip name for application gateway
 pip_agw_ap_001_name = "pip-agw-ap-hml-001"
 
+# public ip allocation method for application gateway
+pip_agw_ap_001_allocation_method = "Dynamic"
+
 # front door name
 fd_aulapp_name = "fd-hml-aulapp"
 
