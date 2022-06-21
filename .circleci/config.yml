@@ -53,17 +53,17 @@ jobs:
           paths:
             - .
 
-destroy:
-  docker:
-    - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
-  steps:
-    - attach_workspace:
-        at: .
-    - run:
-        name: terraform destroy
-        command: |
-          cd ../terraform
-          terraform apply -auto-approve tfdestroy
+  destroy:
+    docker:
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: terraform destroy
+          command: |
+            cd ../terraform
+            terraform apply -auto-approve tfdestroy
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
