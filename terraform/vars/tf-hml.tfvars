@@ -187,3 +187,23 @@ staspa_tier = "Standard"
 staspa_replica_type = "LRS"
 # end of storage variables
 
+# key vault section
+# key vault name
+kv_ap_001_name = "kv-ap-hml-001"
+
+# key vault disk encryption
+kv_ap_001_disk_encryption = "true"
+
+# key vault retention period
+kv_ap_001_retention = "7"
+
+# key vault protection enabled
+kv_ap_001_protection_enabled = "false"
+
+# key vault sku
+kv_ap_001_sku = "standard"
+
+# key vault tenant id
+kv_ap_001_tenant_id = "b84fa403-e0cd-458c-b2e2-6538be09e2d8"
+
+# end of key vault section

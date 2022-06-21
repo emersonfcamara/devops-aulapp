@@ -364,3 +364,42 @@ variable "agw_ap_001_rrr_priority" {
   default     = "10"
 }
 # end of network variables
+
+# section key vault
+# key vault name
+variable "kv_ap_001_name" {
+  description = "The key vault name"
+  default     = "kv-ap-001"
+}
+
+# key vault disk encryption
+variable "kv_ap_001_disk_encryption" {
+  description = "The key vault disk encryption"
+  default     = "true"
+}
+
+# key vault retention period
+variable "kv_ap_001_retention" {
+  description = "The key vault retention period"
+  default     = "7"
+}
+
+# key vault protection enabled
+variable "kv_ap_001_protection_enabled" {
+  description = "The key vault protection enabled"
+  default     = "false"
+}
+
+# key vault sku
+variable "kv_ap_001_sku" {
+  description = "The key vault sku"
+  default     = "standard"
+}
+
+# key vault tenant id
+variable "kv_ap_001_tenant_id" {
+  description = "The key vault tenant id"
+  default     = "b84fa403-e0cd-458c-b2e2-6538be09e2d8"
+}
+
+# end of section key vault

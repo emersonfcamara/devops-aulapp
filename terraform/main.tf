@@ -271,6 +271,26 @@ resource "azurerm_application_gateway" "agw_ap_001" {
 
 # end of network section
 
+# key vault section
+
+resource "azurerm_key_vault" "kv_ap_001" {
+  name                        = "${var.kv_ap_001_name}"
+  location                    = "${var.location}"
+  resource_group_name         = "${azurerm_resource_group.rg_security.name}"
+  enabled_for_disk_encryption = "${var.kv_ap_001_disk_encryption}"
+  tenant_id                   = "${var.kv_ap_001_tenant_id}"
+  soft_delete_retention_days  = "${var.kv_ap_001_retention}"
+  purge_protection_enabled    = "${var.kv_ap_001_protection_enabled}"
+
+  sku_name = "${var.kv_ap_001_sku}"
+
+  depends_on = [
+    azurerm_resource_group.rg_security
+  ]
+}
+
+# end of section key vault
+
 ##############################################################################
 # * Azure MySQL Database
 
