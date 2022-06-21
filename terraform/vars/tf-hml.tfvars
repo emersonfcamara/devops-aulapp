@@ -210,9 +210,27 @@ kv_ap_001_tenant_id = "b84fa403-e0cd-458c-b2e2-6538be09e2d8"
 
 # microsoft cdn profile section
 # microsoft cdn profile name
-cdnp-001_name = "cdnp-hml-001"
+cdnp_001_name = "cdnp-hml-001"
 
 # microsoft cdn profile sku
-cdnp-001_sku  = "Standard_Microsoft"
+cdnp_001_sku  = "Standard_Microsoft"
 
 # end of microsoft cdn profile section
+
+# mysql section
+# mysql server name
+mysql_001_name = "mysql-hml-001"
+
+# mysql server version
+mysql_001_version = "12.0"
+
+# mysql server admin login
+mysql_001_admin_login = "admindbuser"
+
+# mysql server admin password
+mysql_001_admin_password = "t2wwJdHYsfAJ"
+
+# mysql server tls version
+mysql_001_tls_version = "1.2"
+
+# end of mysql section

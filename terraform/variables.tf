@@ -406,15 +406,48 @@ variable "kv_ap_001_tenant_id" {
 
 # microsoft cdn profile section
 # microsoft cdn profile name
-variable "cdnp-001_name" {
+variable "cdnp_001_name" {
   description = "The microsoft cdn profile name"
   default     = "cdnp-001"
 }
 
 # microsoft cdn profile sku
-variable "cdnp-001_sku" {
+variable "cdnp_001_sku" {
   description = "The microsoft cdn profile sku"
   default     = "Standard_Microsoft"
 }
 
 # end of microsoft cdn profile section
+
+# mysql section
+# mysql server name
+variable "mysql_001_name" {
+  description = "The  mysql server name"
+  default     = "mysql-001"
+}
+
+# mysql server version
+variable "mysql_001_version" {
+  description = "The mysql server version"
+  default     = "12.0"
+}
+
+# mysql server admin login
+variable "mysql_001_admin_login" {
+  description = "The mysql server admin login"
+  default     = "admindbuser"
+}
+
+# mysql server admin password
+variable "mysql_001_admin_password" {
+  description = "The mysql server admin password"
+  default     = "P@ssw0rd"
+}
+
+# mysql server tls version
+variable "mysql_001_tls_version" {
+  description = "The mysql server tls version"
+  default     = "1.2"
+}
+
+# end of mysql section

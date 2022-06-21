@@ -293,8 +293,8 @@ resource "azurerm_key_vault" "kv_ap_001" {
 
 # microsoft cdn section
 
-resource "azurerm_cdn_profile" "cdnp-001" {
-  name                = "${var.cdnp-001_name}"
+resource "azurerm_cdn_profile" "cdnp_001" {
+  name                = "${var.cdnp_001_name}"
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.rg_cache.name}"
   sku                 = "${var.cdnp-001_sku}"
@@ -305,6 +305,24 @@ resource "azurerm_cdn_profile" "cdnp-001" {
 }
 
 # end of microsoft cdn section
+
+# mysql section
+
+resource "azurerm_mssql_server" "mysql_001" {
+  name                         = "${var.mysql_001_name}"
+  resource_group_name          = "${var.location}"
+  location                     = "${azurerm_resource_group.rg_database.name}"
+  version                      = "${var.mysql_001_version}"
+  administrator_login          = "${var.mysql_001_admin_login}"
+  administrator_login_password = "${var.mysql_001_admin_password}"
+  minimum_tls_version          = "${var.mysql_001_tls_version}"
+
+  depends_on = [
+    azurerm_resource_group.rg_security
+  ]
+}
+
+# end o mysql section
 
 ##############################################################################
 # * Azure MySQL Database
