@@ -234,3 +234,18 @@ mysql_001_admin_password = "t2wwJdHYsfAJ"
 mysql_001_tls_version = "1.2"
 
 # end of mysql section
+
+# user assigned identity section
+# user assigned identity name
+aks_ap_001_id_name = "aks-ap-hml-001-id"
+
+# end of user assigned identity section
+
+# application insights section
+# application insights name
+appi_ap_001_name = "appi-ap-hml-001"
+
+# application insights application type
+appi_ap_001_type = "Node.JS"
+
+# end of application insights section

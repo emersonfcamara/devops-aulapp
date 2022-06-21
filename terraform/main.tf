@@ -324,6 +324,28 @@ resource "azurerm_mssql_server" "mysql_001" {
 
 # end o mysql section
 
+# user assigned identity section
+
+resource "azurerm_user_assigned_identity" "aks_ap_001_id" {
+  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  location            = "${var.location}"
+
+  name = "${var.aks_ap_001_id_name}"
+}
+
+# end of user assigned identity section
+
+# application insights section
+
+resource "azurerm_application_insights" "appi_ap_001" {
+  name                = "${var.appi_ap_001_name}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  application_type    = "${var.appi_ap_001_type}"
+}
+
+# end of application insights section
+
 ##############################################################################
 # * Azure MySQL Database
 

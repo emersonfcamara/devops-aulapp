@@ -451,3 +451,27 @@ variable "mysql_001_tls_version" {
 }
 
 # end of mysql section
+
+# user assigned identity section
+# user assigned identity name
+variable "aks_ap_001_id_name" {
+  description = "The user assigned identity name"
+  default     = "aks-ap-001-id"
+}
+
+# end of user assigned identity section
+
+# application insights section
+# application insights name
+variable "appi_ap_001_name" {
+  description = "The application insights name"
+  default     = "appi-ap-hml-001"
+}
+
+# application insights application type
+variable "appi_ap_001_type" {
+  description = "The application insights application type"
+  default     = "Node.JS"
+}
+
+# end of application insights section
