@@ -202,7 +202,7 @@ resource "azurerm_frontdoor" "fd_aulapp" {
   }
 
   frontend_endpoint {
-    name      = "${var.fd_aulapp_fe_name}"
+    name      = "${var.fd_aulapp_name}"
     host_name = "${var.fd_aulapp_fe_hn}"
   }
 

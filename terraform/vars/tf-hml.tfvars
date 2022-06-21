@@ -68,7 +68,7 @@ fd_aulapp_rr_name = "fd-aulapp-rr-name"
 fd_aulapp_rr_ap = ["Http", "Https"]
 
 # front door routing rule accepeted patterns
-fd_aulapp_rr_patterns = ["/teste"]
+fd_aulapp_rr_patterns = ["/*"]
 
 # front door routing rule foward configuration fowarding protocol
 fd_aulapp_rr_fc_fp = "MatchRequest"
