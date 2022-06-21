@@ -372,7 +372,7 @@ resource "azurerm_kubernetes_cluster" "aks_ap_001" {
   }
 
   identity {
-    type         = "${var.aks_ap_001_identity}"
+    type         = "${var.aks_ap_001_identity_type}"
     identity_ids = ["${azurerm_user_assigned_identity.aks_ap_001_id.id}"]
   }
 
