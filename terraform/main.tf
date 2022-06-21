@@ -21,8 +21,8 @@ terraform {
   backend "azurerm" {
     resource_group_name  = "tfstate"
     storage_account_name = "stcloudshellusers"
-    container_name       = "${var.tfstate-container}"
-    key                  = "${var.tfstate-key}.tfstate"
+    container_name       = "tfstate"
+    key                  = "hml-terraform.tfstate"
   }
 }
 
