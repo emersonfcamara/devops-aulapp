@@ -79,3 +79,8 @@ variable "pip_agw_ap_001_name" {
   description = "The name for public ip for application gateway 001."
   default     = "pip-agw-ap-001"
 }
+
+variable "pip_agw_ap_001_allocation_method" {
+  description = "The type to alocate the public ip resource."
+  default     = "Static"
+}

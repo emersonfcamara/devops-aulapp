@@ -11,8 +11,18 @@
 
 # The latest version of the Azure provider breaks backward compatibility.
 # TODO: Update this code to use the latest provider.
+terraform {
+  required_providers {
+    azurerm = {
+      source  = "hashicorp/azurerm"
+      version = "=3.0.0"
+    }
+  }
+}
+
+# Configure the Microsoft Azure Provider
 provider "azurerm" {
-  version = "=1.44.0"
+  features {}
 }
 
 # First we'll create a resource group. In Azure every resource belongs to a 
@@ -90,7 +100,7 @@ resource "azurerm_public_ip" "pip_agw_ap_001" {
   name                         = "${var.pip_agw_ap_001_name}"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.rg_infra.name}"
-  public_ip_address_allocation = "Dynamic"
+  allocation_method            = "${var.pip_agw_ap_001_allocation_method}"
 }
 
 
