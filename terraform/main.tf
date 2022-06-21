@@ -297,7 +297,7 @@ resource "azurerm_cdn_profile" "cdnp_001" {
   name                = "${var.cdnp_001_name}"
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.rg_cache.name}"
-  sku                 = "${var.cdnp-001_sku}"
+  sku                 = "${var.cdnp_001_sku}"
 
   depends_on = [
     azurerm_resource_group.rg_security
