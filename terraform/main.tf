@@ -203,7 +203,7 @@ resource "azurerm_frontdoor" "fd_aulapp" {
 
   frontend_endpoint {
     name      = "${var.fd_aulapp_name}"
-    host_name = "${var.fd_aulapp_fe_hn}"
+    host_name = "${var.fd_aulapp_name}.azurefd.net"
   }
 
   depends_on = [
