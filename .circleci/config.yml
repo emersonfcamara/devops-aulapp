@@ -22,36 +22,36 @@ jobs:
           paths:
             - .
   apply:
-  docker:
-    - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
-  steps:
-    - attach_workspace:
-        at: .
-    - run:
-        name: terraform
-        command: |
-          cd ../terraform
-          terraform apply -auto-approve tfapply
-    - persist_to_workspace:
-        root: .
-        paths:
-          - .
+    docker:
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: terraform
+          command: |
+            cd ../terraform
+            terraform apply -auto-approve tfapply
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 
   plan-destroy:
-  docker:
-    - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
-  steps:
-    - attach_workspace:
-        at: .
-    - run:
-        name: terraform create destroy plan
-        command: |
-          cd ../terraform
-          terraform plan -destroy -out tfdestroy -var-file /vars/tf-hml.tfvars
-    - persist_to_workspace:
-        root: .
-        paths:
-          - .
+    docker:
+      - image: docker.mirror.hashicorp.services/hashicorp/terraform:light
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: terraform create destroy plan
+          command: |
+            cd ../terraform
+            terraform plan -destroy -out tfdestroy -var-file /vars/tf-hml.tfvars
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
 
 destroy:
   docker:
