@@ -70,14 +70,8 @@ fd_aulapp_rr_ap = ["Http", "Https"]
 # front door routing rule accepeted patterns
 fd_aulapp_rr_patterns = ["/*"]
 
-# front door routing rule accepeted front end name
-fd_aulapp_fe_name = "fd-aulapp-fe-name"
-
 # front door routing rule foward configuration fowarding protocol
 fd_aulapp_rr_fc_fp = "fd-aulapp-rr-fc-fp"
-
-# front door routing rule foward configuration backend pool name
-fd_aulapp_bp_name = "fd-aulapp-bp-name"
 
 # front door backend pool load balancing name
 fd_aulapp_bplb = "fd-aulapp-bplb"
