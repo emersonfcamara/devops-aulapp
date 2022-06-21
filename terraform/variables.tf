@@ -74,3 +74,8 @@ variable "snet_ap_db_prefix" {
   description = "The address to use for the database subnet."
   default     = "10.5.0.0/24"
 }
+
+variable "pip_agw_ap_001_name" {
+  description = "The name for public ip for application gateway 001."
+  default     = "pip-agw-ap-001"
+}
