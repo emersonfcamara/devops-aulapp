@@ -62,7 +62,7 @@ fd_aulapp_sku = "Standard_AzureFrontDoor"
 agw_ap_001_name = "agw-ap-hml-001"
 
 # application gateway sku
-agw_ap_001_sku = "Standard_Small"
+agw_ap_001_sku = "Standard_v2"
 
 # application gateway sku tier
 agw_ap_001_sku_tier = "Standard_v2"
