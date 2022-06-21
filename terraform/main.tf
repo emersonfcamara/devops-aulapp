@@ -63,8 +63,12 @@ resource "azurerm_resource_group" "rg_database" {
 resource "azurerm_virtual_network" "vnet" {
   name                = "${var.virtual_network_name}"
   location            = "${azurerm_resource_group.rg_infra.location}"
-  address_space       = ["${var.network_address_space}"]
+  address_space       = "${var.network_address_space}"
   resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
 }
 
 # Next we'll build a subnet to run our VMs in. These variables can be defined 
@@ -77,6 +81,11 @@ resource "azurerm_subnet" "snet_ap_hml_agw" {
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
   address_prefixes     = ["${var.snet_ap_agw_prefix}"]
+
+  depends_on = [
+    azurerm_resource_group.rg_infra,
+    azurerm_virtual_network.vnet
+  ]
 }
 
 resource "azurerm_subnet" "snet_ap_hml_aks" {
@@ -84,6 +93,11 @@ resource "azurerm_subnet" "snet_ap_hml_aks" {
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
   address_prefixes     = ["${var.snet_ap_aks_prefix}"]
+
+  depends_on = [
+    azurerm_resource_group.rg_infra,
+    azurerm_virtual_network.vnet
+  ]
 }
 
 resource "azurerm_subnet" "snet_ap_hml_db" {
@@ -91,6 +105,11 @@ resource "azurerm_subnet" "snet_ap_hml_db" {
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
   address_prefixes     = ["${var.snet_ap_db_prefix}"]
+
+  depends_on = [
+    azurerm_resource_group.rg_infra,
+    azurerm_virtual_network.vnet
+  ]
 }
 
 # Every Azure Virtual Machine comes with a private IP address. You can also 
@@ -101,6 +120,10 @@ resource "azurerm_public_ip" "pip_agw_ap_001" {
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.rg_infra.name}"
   allocation_method            = "${var.pip_agw_ap_001_allocation_method}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
 }
 
 
