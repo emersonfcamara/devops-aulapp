@@ -425,7 +425,7 @@ resource "azurerm_storage_account" "st_function_002" {
   resource_group_name      = "${azurerm_resource_group.rg_application.name}"
   location                 = "${var.location}"
   account_tier             = "${var.st_function_002_tier}"
-  account_replication_type = "${var.st_function_002_type}"
+  account_replication_type = "${var.st_function_002_repl_type}"
 }
 
 resource "azurerm_linux_function_app" "func_app_002" {
@@ -444,7 +444,7 @@ resource "azurerm_storage_account" "st_function_003" {
   resource_group_name      = "${azurerm_resource_group.rg_application.name}"
   location                 = "${var.location}"
   account_tier             = "${var.st_function_003_tier}"
-  account_replication_type = "${var.st_function_003_type}"
+  account_replication_type = "${var.st_function_003_repl_type}"
 }
 
 resource "azurerm_linux_function_app" "func_app_003" {
@@ -463,7 +463,7 @@ resource "azurerm_storage_account" "st_function_004" {
   resource_group_name      = "${azurerm_resource_group.rg_application.name}"
   location                 = "${var.location}"
   account_tier             = "${var.st_function_004_tier}"
-  account_replication_type = "${var.st_function_004_type}"
+  account_replication_type = "${var.st_function_004_repl_type}"
 }
 
 resource "azurerm_linux_function_app" "func_app_004" {
