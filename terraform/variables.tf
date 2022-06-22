@@ -520,3 +520,120 @@ variable "aks_ap_001_identity_type" {
 }
 
 # end of kubernenetes section
+
+# azure function app section
+# azure storage name
+variable "st_function_001_name" {
+  description = "The azure function name"
+  default     = "stfuncaulapp001"
+}
+
+# azure storage tier
+variable "st_function_001_tier" {
+  description = "The azure storage tier"
+  default     = "Standard"
+}
+
+# azure storage for function replication type
+variable "st_function_001_repl_type" {
+  description = "The azure storage for function replication type"
+  default     = "LRS"
+}
+
+# azure function server plan name
+variable "app_service_plan_001_name" {
+  description = "The azure function server plan name"
+  default     = "srv-func-ap-001"
+}
+
+# azure function server plan os type
+variable "app_service_plan_001_os_type" {
+  description = "The azure function server plan os type"
+  default     = "Linux"
+}
+
+# azure function server plan sku
+variable "app_service_plan_001_sku" {
+  description = "The azure function server plan sku"
+  default     = "Y1"
+}
+
+ # azure function app name
+variable "func_app_001_name" {
+  description = "The azure function app name"
+  default     = "func-001"
+}
+
+# azure storage name
+variable "st_function_002_name" {
+  description = "The azure function name"
+  default     = "stfuncaulapp002"
+}
+
+# azure storage tier
+variable "st_function_002_tier" {
+  description = "The azure storage tier"
+  default     = "Standard"
+}
+
+# azure storage for function replication type
+variable "st_function_002_repl_type" {
+  description = "The azure storage for function replication type"
+  default     = "LRS"
+}
+
+# azure function app name
+variable "func_app_002_name" {
+  description = "The azure function app name"
+  default     = "func-002"
+}
+
+# azure storage name
+variable "st_function_003_name" {
+  description = "The azure function name"
+  default     = "stfuncaulapp003"
+}
+
+# azure storage tier
+variable "st_function_003_tier" {
+  description = "The azure storage tier"
+  default     = "Standard"
+}
+
+# azure storage for function replication type
+variable "st_function_003_repl_type" {
+  description = "The azure storage for function replication type"
+  default     = "LRS"
+}
+
+# azure function app name
+variable "func_app_003_name" {
+  description = "The azure function app name"
+  default     = "func-002"
+}
+
+# azure storage name
+variable "st_function_004_name" {
+  description = "The azure function name"
+  default     = "stfuncaulapp002"
+}
+
+# azure storage tier
+variable "st_function_004_tier" {
+  description = "The azure storage tier"
+  default     = "Standard"
+}
+
+# azure storage for function replication type
+variable "st_function_004_repl_type" {
+  description = "The azure storage for function replication type"
+  default     = "LRS"
+}
+
+# azure function app name
+variable "func_app_004_name" {
+  description = "The azure function app name"
+  default     = "func-004"
+}
+
+# end of azure function app

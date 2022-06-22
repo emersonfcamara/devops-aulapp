@@ -273,3 +273,63 @@ aks_ap_001_vm_size = "Standard_D2_v2"
 aks_ap_001_identity_type = "UserAssigned"
 
 # end of kubernenetes section
+
+# azure function app section
+# azure storage name
+st_function_001_name = "stfuncaulapphml001"
+
+# azure storage tier
+st_function_001_tier = "Standard"
+
+# azure storage for function replication type
+st_function_001_repl_type = "LRS"
+
+# azure function server plan name
+app_service_plan_001_name = "srv-func-ap-hml-001"
+
+# azure function server plan os type
+app_service_plan_001_os_type = "Linux"
+
+# azure function server plan sku
+app_service_plan_001_sku = "Y1"
+
+ # azure function app name
+func_app_001_name = "func-hml-001"
+
+# azure storage name
+st_function_002_name = "stfuncaulapphml002"
+
+# azure storage tier
+st_function_002_tier = "Standard"
+
+# azure storage for function replication type
+st_function_002_repl_type = "LRS"
+
+# azure function app name
+func_app_002_name = "func-hml-002"
+
+# azure storage name
+st_function_003_name = "stfuncaulapphml003"
+
+# azure storage tier
+st_function_003_tier = "Standard"
+
+# azure storage for function replication type
+st_function_003_repl_type = "LRS"
+
+# azure function app name
+func_app_003_name = "func-hml-002"
+
+# azure storage name
+st_function_004_name = "stfuncaulapphml002"
+
+# azure storage tier
+st_function_004_tier = "Standard"
+
+# azure storage for function replication type
+st_function_004_repl_type = "LRS"
+
+# azure function app name
+func_app_004_name = "func-hml-004"
+
+# end of azure function app
