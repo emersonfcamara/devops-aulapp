@@ -399,6 +399,10 @@ resource "azurerm_storage_account" "st_function_001" {
   location                 = "${var.location}"
   account_tier             = "${var.st_function_001_tier}"
   account_replication_type = "${var.st_function_001_repl_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
 }
 
 resource "azurerm_service_plan" "app_service_plan_001" {
@@ -407,6 +411,10 @@ resource "azurerm_service_plan" "app_service_plan_001" {
   location            = "${var.location}"
   os_type             = "${var.app_service_plan_001_os_type}"
   sku_name            = "${var.app_service_plan_001_sku}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
 }
 
 resource "azurerm_linux_function_app" "func_app_001" {
@@ -418,6 +426,12 @@ resource "azurerm_linux_function_app" "func_app_001" {
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
   site_config {}
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_storage_account.st_function_001,
+    azurerm_service_plan.app_service_plan_001
+  ]
 }
 
 resource "azurerm_storage_account" "st_function_002" {
@@ -426,6 +440,10 @@ resource "azurerm_storage_account" "st_function_002" {
   location                 = "${var.location}"
   account_tier             = "${var.st_function_002_tier}"
   account_replication_type = "${var.st_function_002_repl_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
 }
 
 resource "azurerm_linux_function_app" "func_app_002" {
@@ -437,6 +455,12 @@ resource "azurerm_linux_function_app" "func_app_002" {
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
   site_config {}
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_storage_account.st_function_002,
+    azurerm_service_plan.app_service_plan_001
+  ]
 }
 
 resource "azurerm_storage_account" "st_function_003" {
@@ -445,6 +469,10 @@ resource "azurerm_storage_account" "st_function_003" {
   location                 = "${var.location}"
   account_tier             = "${var.st_function_003_tier}"
   account_replication_type = "${var.st_function_003_repl_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
 }
 
 resource "azurerm_linux_function_app" "func_app_003" {
@@ -456,6 +484,12 @@ resource "azurerm_linux_function_app" "func_app_003" {
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
   site_config {}
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_storage_account.st_function_003,
+    azurerm_service_plan.app_service_plan_001
+  ]
 }
 
 resource "azurerm_storage_account" "st_function_004" {
@@ -464,6 +498,10 @@ resource "azurerm_storage_account" "st_function_004" {
   location                 = "${var.location}"
   account_tier             = "${var.st_function_004_tier}"
   account_replication_type = "${var.st_function_004_repl_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
 }
 
 resource "azurerm_linux_function_app" "func_app_004" {
@@ -475,6 +513,12 @@ resource "azurerm_linux_function_app" "func_app_004" {
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
   site_config {}
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_storage_account.st_function_004,
+    azurerm_service_plan.app_service_plan_001
+  ]
 }
 
 # end of azure function app

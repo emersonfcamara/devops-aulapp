@@ -318,10 +318,10 @@ st_function_003_tier = "Standard"
 st_function_003_repl_type = "LRS"
 
 # azure function app name
-func_app_003_name = "func-hml-002"
+func_app_003_name = "func-hml-003"
 
 # azure storage name
-st_function_004_name = "stfuncaulapphml002"
+st_function_004_name = "stfuncaulapphml004"
 
 # azure storage tier
 st_function_004_tier = "Standard"

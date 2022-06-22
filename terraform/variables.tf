@@ -609,13 +609,13 @@ variable "st_function_003_repl_type" {
 # azure function app name
 variable "func_app_003_name" {
   description = "The azure function app name"
-  default     = "func-002"
+  default     = "func-003"
 }
 
 # azure storage name
 variable "st_function_004_name" {
   description = "The azure function name"
-  default     = "stfuncaulapp002"
+  default     = "stfuncaulapp004"
 }
 
 # azure storage tier
