@@ -532,8 +532,8 @@ resource "azurerm_linux_function_app" "func_app_004" {
 
 resource "azurerm_servicebus_namespace" "sb_ap_001" {
   name                = "${var.sb_ap_001_name}"
-  location            = "${azurerm_resource_group.rg_queue.name}"
-  resource_group_name = "${var.location}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.rg_queue.name}"
   sku                 = "${var.sb_ap_001_sku}"
 
   depends_on = [
