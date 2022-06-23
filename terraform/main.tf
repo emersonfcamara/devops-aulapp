@@ -62,6 +62,11 @@ resource "azurerm_resource_group" "rg_database" {
   location = "${var.location}"
 }
 
+resource "azurerm_resource_group" "rg_queue" {
+  name     = "${var.resource_group_rg_queue}"
+  location = "${var.location}"
+}
+
 # end section of resource group
 
 # The next resource is a Virtual Network. We can dynamically place it into the
@@ -522,3 +527,18 @@ resource "azurerm_linux_function_app" "func_app_004" {
 }
 
 # end of azure function app
+
+# service bus section
+
+resource "azurerm_servicebus_namespace" "sb_ap_001" {
+  name                = "${var.sb_ap_001_name}"
+  location            = "${azurerm_resource_group.rg_queue.name}"
+  resource_group_name = "${var.location}"
+  sku                 = "${var.sb_ap_001_sku}"
+
+  depends_on = [
+    azurerm_resource_group.rg_queue
+  ]
+}
+
+# end of service bus section

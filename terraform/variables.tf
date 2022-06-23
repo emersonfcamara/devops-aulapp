@@ -41,6 +41,12 @@ variable "resource_group_rg_database" {
   description = "Resource group database name."
   default     = "rg-database"
 }
+
+# resource group queue name
+variable "resource_group_rg_queue" {
+  description = "Resource group database name."
+  default     = "rg-queue"
+}
 # end of general variables
 
 # storage variables
@@ -637,3 +643,18 @@ variable "func_app_004_name" {
 }
 
 # end of azure function app
+
+# service bus section
+# azure service bus name
+variable "sb_ap_001_name" {
+  description = "The service bus namespace name"
+  default     = "sb-001"
+}
+
+# azure service bus sku
+variable "sb_ap_001_sku" {
+  description = "The service bus sku"
+  default     = "Standard"
+}
+
+# end of service bus section

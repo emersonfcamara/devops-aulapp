@@ -22,6 +22,9 @@ resource_group_rg_security = "rg-hml-security"
 
 # resource group database name
 resource_group_rg_database = "rg-hml-database"
+
+# resource group queue name
+resource_group_rg_queue = "rg-hml-queue"
 # end of general variables
 
 # network variables
@@ -333,3 +336,12 @@ st_function_004_repl_type = "LRS"
 func_app_004_name = "func-hml-004"
 
 # end of azure function app
+
+# service bus section
+# azure service bus name
+sb_ap_001_name = "sb-hml-001"
+
+# azure service bus sku
+sb_ap_001_sku = "Standard"
+
+# end of service bus section
