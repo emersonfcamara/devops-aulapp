@@ -257,6 +257,9 @@ acg_ap_001_name = "ag-hml-001"
 # application insights action rule group short name
 acg_ap_001_short_name = "ag-hml-001"
 
+# application insights smart detector alert rule name
+sdar_app_001_name = "sdar-ag-hml-001"
+
 # application insights smart detector alert rule
 sdar_app_001_severity = "Sev0"
 

@@ -492,7 +492,13 @@ variable "acg_ap_001_short_name" {
   default     = "ag-001"
 }
 
-# application insights smart detector alert rule
+# application insights smart detector alert rule name
+variable "sdar_app_001_name" {
+  description = "The application insights action rule group short name"
+  default     = "sdar-ag-001"
+}
+
+# application insights smart detector alert rule severity
 variable "sdar_app_001_severity" {
   description = "The application insights smart detector alert rule"
   default     = "Sev0"
