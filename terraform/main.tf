@@ -376,12 +376,12 @@ resource "azurerm_monitor_smart_detector_alert_rule" "sdar_app_001" {
   detector_type       = "${var.sdar_app_001_detector_type}"
 
   action_group {
-    ids = [azurerm_monitor_action_group.example.id]
+    ids = [azurerm_monitor_action_group.acg_ap_001.id]
   }
 
   depends_on = [
     azurerm_resource_group.rg_application,
-    azurerm_application_insights.acg_ap_001,
+    azurerm_monitor_action_group.acg_ap_001,
     azurerm_application_insights.appi_ap_001
   ]
 }
