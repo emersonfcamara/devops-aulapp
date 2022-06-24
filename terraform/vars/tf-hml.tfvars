@@ -251,6 +251,21 @@ appi_ap_001_name = "appi-ap-hml-001"
 # application insights application type
 appi_ap_001_type = "Node.JS"
 
+# application insights action rule group name
+acg_ap_001_name = "ag-hml-001"
+
+# application insights action rule group short name
+acg_ap_001_short_name = "ag-hml-001"
+
+# application insights smart detector alert rule
+sdar_app_001_severity = "Sev0"
+
+# application insights smart detector alert rule frequency
+sdar_app_001_frequency = "PT1M"
+
+# application insights smart detector alert rule type
+sdar_app_001_detector_type = "FailureAnomaliesDetector"
+
 # end of application insights section
 
 # kubernetes section

@@ -480,6 +480,36 @@ variable "appi_ap_001_type" {
   default     = "Node.JS"
 }
 
+# application insights action rule group name
+variable "acg_ap_001_name" {
+  description = "The application insights action rule group name"
+  default     = "ag-001"
+}
+
+# application insights action rule group short name
+variable "acg_ap_001_short_name" {
+  description = "The application insights action rule group short name"
+  default     = "ag-001"
+}
+
+# application insights smart detector alert rule
+variable "sdar_app_001_severity" {
+  description = "The application insights smart detector alert rule"
+  default     = "Sev0"
+}
+
+# application insights smart detector alert rule frequency
+variable "sdar_app_001_frequency" {
+  description = "The application insights smart detector alert rule frequency"
+  default     = "PT1M"
+}
+
+# application insights smart detector alert rule type
+variable "sdar_app_001_detector_type" {
+  description = "The application insights smart detector alert rule type"
+  default     = "FailureAnomaliesDetector"
+}
+
 # end of application insights section
 
 # kubernetes section
