@@ -329,6 +329,24 @@ resource "azurerm_mssql_server" "mysql_001" {
 
 # end o mysql section
 
+# private endpoint section
+
+resource "azurerm_private_endpoint" "pep_mysql_001" {
+  name                = "${var.pep_mysql_001_name}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.rg_security.name}"
+  subnet_id           = "${azurerm_subnet.snet_ap_hml_db.id}"
+
+  private_service_connection {
+    name                           = "${var.pep_mysql_001_service_name}"
+    private_connection_resource_id = "${azurerm_mssql_server.mysql_001.id}"
+    subresource_names              = "${var.pep_mysql_001_subresource_name}"
+    is_manual_connection           = false
+  }
+}
+
+# end of private endpoint section
+
 # user assigned identity section
 
 resource "azurerm_user_assigned_identity" "aks_ap_001_id" {

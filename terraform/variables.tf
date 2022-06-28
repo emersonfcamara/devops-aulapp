@@ -458,6 +458,33 @@ variable "mysql_001_tls_version" {
 
 # end of mysql section
 
+# private endpoint section
+# private endpoint name
+variable "pep_mysql_001_name" {
+  description = "The private endpoint name"
+  default     = "pep-mysql-001"
+}
+
+# private endpoint service name
+variable "pep_mysql_001_service_name" {
+  description = "The private endpoint service name"
+  default     = "pep-sn-mysql-connection"
+}
+
+# private endpoint subresource names
+variable "pep_mysql_001_subresource_name" {
+  description = "The mysql server tls version"
+  default     = ["sqlServer"]
+}
+
+# private endpoint is manual connection
+variable "pep_mysql_001_ismc" {
+  description = "The private endpoint is manual connection"
+  default     = "false"
+}
+
+# end of private endpoint section
+
 # user assigned identity section
 # user assigned identity name
 variable "aks_ap_001_id_name" {

@@ -238,6 +238,21 @@ mysql_001_tls_version = "1.2"
 
 # end of mysql section
 
+# private endpoint section
+# private endpoint name
+pep_mysql_001_name = "pep-mysql-hml-001"
+
+# private endpoint service name
+pep_mysql_001_service_name = "pep-sn-mysql-hml-connection"
+
+# private endpoint subresource names
+pep_mysql_001_subresource_name = ["sqlServer"]
+
+# private endpoint is manual connection
+pep_mysql_001_ismc = "false"
+
+# end of private endpoint section
+
 # user assigned identity section
 # user assigned identity name
 aks_ap_001_id_name = "aks-ap-hml-001-id"
