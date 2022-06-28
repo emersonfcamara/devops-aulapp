@@ -255,7 +255,7 @@ pep_mysql_001_ismc = "false"
 
 # private dns section
 # private dns zone name
-pdnsz_001_name = "pdnsz-aulapp-hml-001"
+pdnsz_001_name = "aulapphml.com"
 
 # end of private dns section
 
