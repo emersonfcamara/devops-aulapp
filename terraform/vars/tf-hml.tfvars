@@ -315,7 +315,7 @@ app_service_plan_001_os_type = "Linux"
 app_service_plan_001_sku = "Y1"
 
  # azure function app name
-func_app_001_name = "func-hml-001"
+func_app_001_name = "func-file-integration-hml"
 
 # azure storage name
 st_function_002_name = "stfuncaulapphml002"
@@ -327,7 +327,7 @@ st_function_002_tier = "Standard"
 st_function_002_repl_type = "LRS"
 
 # azure function app name
-func_app_002_name = "func-hml-002"
+func_app_002_name = "func-file-integration-hml-queue-consumer"
 
 # azure storage name
 st_function_003_name = "stfuncaulapphml003"
@@ -339,7 +339,7 @@ st_function_003_tier = "Standard"
 st_function_003_repl_type = "LRS"
 
 # azure function app name
-func_app_003_name = "func-hml-003"
+func_app_003_name = "func-online-notification-hml-online"
 
 # azure storage name
 st_function_004_name = "stfuncaulapphml004"
@@ -351,7 +351,7 @@ st_function_004_tier = "Standard"
 st_function_004_repl_type = "LRS"
 
 # azure function app name
-func_app_004_name = "func-hml-004"
+func_app_004_name = "func-magento-integration-hml-queue-consumer"
 
 # azure storage name
 st_function_005_name = "stfuncaulapphml005"
@@ -363,7 +363,7 @@ st_function_005_tier = "Standard"
 st_function_005_repl_type = "LRS"
 
 # azure function app name
-func_app_005_name = "func-hml-005"
+func_app_005_name = "func-send-notification-hml-sender"
 
 # azure storage name
 st_function_006_name = "stfuncaulapphml006"
@@ -375,7 +375,7 @@ st_function_006_tier = "Standard"
 st_function_006_repl_type = "LRS"
 
 # azure function app name
-func_app_006_name = "func-hml-006"
+func_app_006_name = "func-file-integration-hml-custom-resource-existing-s3"
 
 # azure storage name
 st_function_007_name = "stfuncaulapphml004"
@@ -387,7 +387,7 @@ st_function_007_tier = "Standard"
 st_function_007_repl_type = "LRS"
 
 # azure function app name
-func_app_007_name = "func-hml-007"
+func_app_007_name = "func-magento-integration-hml"
 
 # end of azure function app
 
