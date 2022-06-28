@@ -359,6 +359,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "pdnsz_vnet_001" {
   resource_group_name   = "${azurerm_resource_group.rg_infra.name}"
   private_dns_zone_name = "${azurerm_private_dns_zone.pdnsz_001.name}"
   virtual_network_id    = "${azurerm_virtual_network.vnet.id}"
+  registration_enabled  = "${var.pdnsz_vnet_001_re}"
 }
 
 # end of private dns section

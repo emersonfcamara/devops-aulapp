@@ -498,6 +498,12 @@ variable "pdnsz_vnet_001_name" {
   default     = "pdnsz-vnet-001"
 }
 
+# private dns zone virtual network enabled auto registration
+variable "pdnsz_vnet_001_re" {
+  description = "The private dns zone virtual network enabled auto registration"
+  default     = "true"
+}
+
 # end of private dns section
 
 # user assigned identity section

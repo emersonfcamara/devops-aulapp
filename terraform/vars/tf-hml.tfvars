@@ -260,6 +260,9 @@ pdnsz_001_name = "aulapphml.com"
 # private dns zone virtual network link
 pdnsz_vnet_001_name = "pdnsz-vnet-hml-001"
 
+# private dns zone virtual network enabled auto registration
+pdnsz_vnet_001_re = "true"
+
 # end of private dns section
 
 # user assigned identity section
