@@ -272,6 +272,12 @@ resource "azurerm_application_gateway" "agw_ap_001" {
     backend_http_settings_name = "${var.agw_ap_001_bhs_name}"
     priority                   = "${var.agw_ap_001_rrr_priority}"
   }
+
+  depends_on = [
+    azurerm_resource_group.rg_infra,
+    azurerm_subnet.snet_ap_hml_agw,
+    azurerm_public_ip.pip_agw_ap_001
+  ]
 }
 
 # end of network section
@@ -343,6 +349,12 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
     subresource_names              = "${var.pep_mysql_001_subresource_name}"
     is_manual_connection           = "${var.pep_mysql_001_ismc}"
   }
+
+  depends_on = [
+    azurerm_resource_group.rg_security,
+    azurerm_mssql_server.mysql_001,
+    azurerm_subnet.snet_ap_hml_db
+  ]
 }
 
 # end of private endpoint section
@@ -352,6 +364,10 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
 resource "azurerm_private_dns_zone" "pdnsz_001" {
   name                = "${var.pdnsz_001_name}"
   resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
 }
 
 resource "azurerm_private_dns_zone_virtual_network_link" "pdnsz_vnet_001" {
@@ -360,6 +376,12 @@ resource "azurerm_private_dns_zone_virtual_network_link" "pdnsz_vnet_001" {
   private_dns_zone_name = "${azurerm_private_dns_zone.pdnsz_001.name}"
   virtual_network_id    = "${azurerm_virtual_network.vnet.id}"
   registration_enabled  = "${var.pdnsz_vnet_001_re}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra,
+    azurerm_private_dns_zone.pdnsz_001,
+    azurerm_virtual_network.vnet
+  ]
 }
 
 # end of private dns section
