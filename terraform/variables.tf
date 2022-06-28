@@ -488,8 +488,14 @@ variable "pep_mysql_001_ismc" {
 # private dns section
 # private dns zone name
 variable "pdnsz_001_name" {
-    description = "The private dns zone name"
+  description = "The private dns zone name"
   default     = "pdnsz-001"
+}
+
+# private dns zone virtual network link
+variable "pdnsz_vnet_001_name" {
+  description = "The private dns zone virtual network link"
+  default     = "pdnsz-vnet-001"
 }
 
 # end of private dns section

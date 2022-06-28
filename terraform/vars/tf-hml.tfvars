@@ -257,6 +257,9 @@ pep_mysql_001_ismc = "false"
 # private dns zone name
 pdnsz_001_name = "aulapphml.com"
 
+# private dns zone virtual network link
+pdnsz_vnet_001_name = "pdnsz-vnet-hml-001"
+
 # end of private dns section
 
 # user assigned identity section
