@@ -353,6 +353,42 @@ st_function_004_repl_type = "LRS"
 # azure function app name
 func_app_004_name = "func-hml-004"
 
+# azure storage name
+st_function_005_name = "stfuncaulapphml005"
+
+# azure storage tier
+st_function_005_tier = "Standard"
+
+# azure storage for function replication type
+st_function_005_repl_type = "LRS"
+
+# azure function app name
+func_app_005_name = "func-hml-005"
+
+# azure storage name
+st_function_006_name = "stfuncaulapphml006"
+
+# azure storage tier
+st_function_006_tier = "Standard"
+
+# azure storage for function replication type
+st_function_006_repl_type = "LRS"
+
+# azure function app name
+func_app_006_name = "func-hml-006"
+
+# azure storage name
+st_function_007_name = "stfuncaulapphml004"
+
+# azure storage tier
+st_function_007_tier = "Standard"
+
+# azure storage for function replication type
+st_function_007_repl_type = "LRS"
+
+# azure function app name
+func_app_007_name = "func-hml-007"
+
 # end of azure function app
 
 # service bus section

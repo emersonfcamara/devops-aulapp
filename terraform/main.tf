@@ -555,6 +555,93 @@ resource "azurerm_linux_function_app" "func_app_004" {
   ]
 }
 
+
+resource "azurerm_storage_account" "st_function_005" {
+  name                     = "${var.st_function_005_name}"
+  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  location                 = "${var.location}"
+  account_tier             = "${var.st_function_005_tier}"
+  account_replication_type = "${var.st_function_005_repl_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
+}
+
+resource "azurerm_linux_function_app" "func_app_005" {
+  name                = "${var.func_app_005_name}"
+  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  location            = "${var.location}"
+
+  storage_account_name = "${azurerm_storage_account.st_function_005.name}"
+  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+
+  site_config {}
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_storage_account.st_function_005,
+    azurerm_service_plan.app_service_plan_001
+  ]
+}
+
+resource "azurerm_storage_account" "st_function_006" {
+  name                     = "${var.st_function_006_name}"
+  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  location                 = "${var.location}"
+  account_tier             = "${var.st_function_006_tier}"
+  account_replication_type = "${var.st_function_006_repl_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
+}
+
+resource "azurerm_linux_function_app" "func_app_006" {
+  name                = "${var.func_app_006_name}"
+  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  location            = "${var.location}"
+
+  storage_account_name = "${azurerm_storage_account.st_function_006.name}"
+  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+
+  site_config {}
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_storage_account.st_function_006,
+    azurerm_service_plan.app_service_plan_001
+  ]
+}
+
+resource "azurerm_storage_account" "st_function_007" {
+  name                     = "${var.st_function_007_name}"
+  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  location                 = "${var.location}"
+  account_tier             = "${var.st_function_007_tier}"
+  account_replication_type = "${var.st_function_007_repl_type}"
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+  ]
+}
+
+resource "azurerm_linux_function_app" "func_app_007" {
+  name                = "${var.func_app_007_name}"
+  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  location            = "${var.location}"
+
+  storage_account_name = "${azurerm_storage_account.st_function_007.name}"
+  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+
+  site_config {}
+
+  depends_on = [
+    azurerm_resource_group.rg_application,
+    azurerm_storage_account.st_function_007,
+    azurerm_service_plan.app_service_plan_001
+  ]
+}
 # end of azure function app
 
 # service bus section

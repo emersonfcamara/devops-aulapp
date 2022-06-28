@@ -678,6 +678,78 @@ variable "func_app_004_name" {
   default     = "func-004"
 }
 
+# azure storage name
+variable "st_function_005_name" {
+  description = "The azure function name"
+  default     = "stfuncaulapp005"
+}
+
+# azure storage tier
+variable "st_function_005_tier" {
+  description = "The azure storage tier"
+  default     = "Standard"
+}
+
+# azure storage for function replication type
+variable "st_function_005_repl_type" {
+  description = "The azure storage for function replication type"
+  default     = "LRS"
+}
+
+# azure function app name
+variable "func_app_005_name" {
+  description = "The azure function app name"
+  default     = "func-005"
+}
+
+# azure storage name
+variable "st_function_006_name" {
+  description = "The azure function name"
+  default     = "stfuncaulapp006"
+}
+
+# azure storage tier
+variable "st_function_006_tier" {
+  description = "The azure storage tier"
+  default     = "Standard"
+}
+
+# azure storage for function replication type
+variable "st_function_006_repl_type" {
+  description = "The azure storage for function replication type"
+  default     = "LRS"
+}
+
+# azure function app name
+variable "func_app_006_name" {
+  description = "The azure function app name"
+  default     = "func-006"
+}
+
+# azure storage name
+variable "st_function_007_name" {
+  description = "The azure function name"
+  default     = "stfuncaulapp007"
+}
+
+# azure storage tier
+variable "st_function_007_tier" {
+  description = "The azure storage tier"
+  default     = "Standard"
+}
+
+# azure storage for function replication type
+variable "st_function_007_repl_type" {
+  description = "The azure storage for function replication type"
+  default     = "LRS"
+}
+
+# azure function app name
+variable "func_app_007_name" {
+  description = "The azure function app name"
+  default     = "func-007"
+}
+
 # end of azure function app
 
 # service bus section
