@@ -516,12 +516,15 @@ resource "azurerm_linux_function_app" "func_app_001" {
   storage_account_name = "${azurerm_storage_account.st_function_001.name}"
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
-  site_config {}
+  site_config {
+    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_application,
     azurerm_storage_account.st_function_001,
-    azurerm_service_plan.app_service_plan_001
+    azurerm_service_plan.app_service_plan_001,
+    azurerm_application_insights.appi_ap_001
   ]
 }
 
@@ -545,12 +548,15 @@ resource "azurerm_linux_function_app" "func_app_002" {
   storage_account_name = "${azurerm_storage_account.st_function_002.name}"
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
-  site_config {}
+  site_config {
+    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_application,
     azurerm_storage_account.st_function_002,
-    azurerm_service_plan.app_service_plan_001
+    azurerm_service_plan.app_service_plan_001,
+    azurerm_application_insights.appi_ap_001
   ]
 }
 
@@ -574,12 +580,15 @@ resource "azurerm_linux_function_app" "func_app_003" {
   storage_account_name = "${azurerm_storage_account.st_function_003.name}"
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
-  site_config {}
+  site_config {
+    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_application,
     azurerm_storage_account.st_function_003,
-    azurerm_service_plan.app_service_plan_001
+    azurerm_service_plan.app_service_plan_001,
+    azurerm_application_insights.appi_ap_001
   ]
 }
 
@@ -603,12 +612,15 @@ resource "azurerm_linux_function_app" "func_app_004" {
   storage_account_name = "${azurerm_storage_account.st_function_004.name}"
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
-  site_config {}
+  site_config {
+    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_application,
     azurerm_storage_account.st_function_004,
-    azurerm_service_plan.app_service_plan_001
+    azurerm_service_plan.app_service_plan_001,
+    azurerm_application_insights.appi_ap_001
   ]
 }
 
@@ -633,12 +645,15 @@ resource "azurerm_linux_function_app" "func_app_005" {
   storage_account_name = "${azurerm_storage_account.st_function_005.name}"
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
-  site_config {}
+  site_config {
+    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_application,
     azurerm_storage_account.st_function_005,
-    azurerm_service_plan.app_service_plan_001
+    azurerm_service_plan.app_service_plan_001,
+    azurerm_application_insights.appi_ap_001
   ]
 }
 
@@ -662,12 +677,15 @@ resource "azurerm_linux_function_app" "func_app_006" {
   storage_account_name = "${azurerm_storage_account.st_function_006.name}"
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
-  site_config {}
+  site_config {
+    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_application,
     azurerm_storage_account.st_function_006,
-    azurerm_service_plan.app_service_plan_001
+    azurerm_service_plan.app_service_plan_001,
+    azurerm_application_insights.appi_ap_001
   ]
 }
 
@@ -691,12 +709,15 @@ resource "azurerm_linux_function_app" "func_app_007" {
   storage_account_name = "${azurerm_storage_account.st_function_007.name}"
   service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
 
-  site_config {}
+  site_config {
+    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+  }
 
   depends_on = [
     azurerm_resource_group.rg_application,
     azurerm_storage_account.st_function_007,
-    azurerm_service_plan.app_service_plan_001
+    azurerm_service_plan.app_service_plan_001,
+    azurerm_application_insights.appi_ap_001
   ]
 }
 # end of azure function app
