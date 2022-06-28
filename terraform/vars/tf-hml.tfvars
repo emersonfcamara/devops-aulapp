@@ -378,7 +378,7 @@ st_function_006_repl_type = "LRS"
 func_app_006_name = "func-file-integration-hml-custom-resource-existing-s3"
 
 # azure storage name
-st_function_007_name = "stfuncaulapphml004"
+st_function_007_name = "stfuncaulapphml007"
 
 # azure storage tier
 st_function_007_tier = "Standard"
