@@ -341,11 +341,20 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
     name                           = "${var.pep_mysql_001_service_name}"
     private_connection_resource_id = "${azurerm_mssql_server.mysql_001.id}"
     subresource_names              = "${var.pep_mysql_001_subresource_name}"
-    is_manual_connection           = false
+    is_manual_connection           = "${var.pep_mysql_001_ismc}"
   }
 }
 
 # end of private endpoint section
+
+# private dns section
+
+resource "azurerm_private_dns_zone" "pdnsz_001" {
+  name                = "${var.pdnsz_001_name}"
+  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+}
+
+# end of private dns section
 
 # user assigned identity section
 

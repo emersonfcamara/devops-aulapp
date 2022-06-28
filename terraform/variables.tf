@@ -485,6 +485,15 @@ variable "pep_mysql_001_ismc" {
 
 # end of private endpoint section
 
+# private dns section
+# private dns zone name
+variable "pdnsz_001_name" {
+    description = "The private dns zone name"
+  default     = "pdnsz-001"
+}
+
+# end of private dns section
+
 # user assigned identity section
 # user assigned identity name
 variable "aks_ap_001_id_name" {

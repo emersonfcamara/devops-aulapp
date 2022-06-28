@@ -253,6 +253,12 @@ pep_mysql_001_ismc = "false"
 
 # end of private endpoint section
 
+# private dns section
+# private dns zone name
+pdnsz_001_name = "pdnsz-aulapp-hml-001"
+
+# end of private dns section
+
 # user assigned identity section
 # user assigned identity name
 aks_ap_001_id_name = "aks-ap-hml-001-id"
