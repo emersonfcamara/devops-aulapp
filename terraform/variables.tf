@@ -498,7 +498,7 @@ variable "pep_mysql_001_service_name" {
 # private endpoint subresource names
 variable "pep_mysql_001_subresource_name" {
   description = "The mysql server tls version"
-  default     = ["sqlServer"]
+  default     = ["mysqlServer"]
 }
 
 # private endpoint is manual connection

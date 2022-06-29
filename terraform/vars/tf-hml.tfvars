@@ -234,7 +234,7 @@ mysql_001_admin_login = "admindbuser"
 mysql_001_admin_password = "t2wwJdHYsfAJ"
 
 # mysql server tls version
-mysql_001_tls_version = "TLS1_1"
+mysql_001_tls_version = "TLS1_2"
 
 # mysql server sku
 mysql_001_sku = "B_Gen5_2"
@@ -258,7 +258,7 @@ pep_mysql_001_name = "pep-mysql-hml-001"
 pep_mysql_001_service_name = "pep-sn-mysql-hml-connection"
 
 # private endpoint subresource names
-pep_mysql_001_subresource_name = ["sqlServer"]
+pep_mysql_001_subresource_name = ["mysqlServer"]
 
 # private endpoint is manual connection
 pep_mysql_001_ismc = "false"
