@@ -531,6 +531,10 @@ resource "azurerm_linux_function_app" "func_app_001" {
 
   site_config {
     application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+
+    application_stack{
+      python_version = "${var.func_app_001_scas_version}"
+    }
   }
 
   depends_on = [
@@ -563,6 +567,10 @@ resource "azurerm_linux_function_app" "func_app_002" {
 
   site_config {
     application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+
+    application_stack{
+      python_version = "${var.func_app_002_scas_version}"
+    }
   }
 
   depends_on = [
@@ -595,6 +603,10 @@ resource "azurerm_linux_function_app" "func_app_003" {
 
   site_config {
     application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+
+    application_stack{
+      python_version = "${var.func_app_003_scas_version}"
+    }
   }
 
   depends_on = [
@@ -627,6 +639,10 @@ resource "azurerm_linux_function_app" "func_app_004" {
 
   site_config {
     application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+
+    application_stack{
+      python_version = "${var.func_app_004_scas_version}"
+    }
   }
 
   depends_on = [
@@ -660,6 +676,10 @@ resource "azurerm_linux_function_app" "func_app_005" {
 
   site_config {
     application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+
+    application_stack{
+      python_version = "${var.func_app_005_scas_version}"
+    }
   }
 
   depends_on = [
@@ -692,6 +712,10 @@ resource "azurerm_linux_function_app" "func_app_006" {
 
   site_config {
     application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+
+    application_stack{
+      node_version = "${var.func_app_006_scas_version}"
+    }
   }
 
   depends_on = [
@@ -724,6 +748,10 @@ resource "azurerm_linux_function_app" "func_app_007" {
 
   site_config {
     application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+
+    application_stack{
+      python_version = "${var.func_app_007_scas_version}"
+    }
   }
 
   depends_on = [

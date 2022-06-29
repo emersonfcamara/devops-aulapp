@@ -359,6 +359,9 @@ app_service_plan_001_sku = "Y1"
  # azure function app name
 func_app_001_name = "func-file-integration-hml"
 
+# azure function site config application stack version
+func_app_001_scas_version = "3.7"
+
 # azure storage name
 st_function_002_name = "stfuncaulapphml002"
 
@@ -370,6 +373,9 @@ st_function_002_repl_type = "LRS"
 
 # azure function app name
 func_app_002_name = "func-file-integration-hml-queue-consumer"
+
+# azure function site config application stack version
+func_app_002_scas_version = "3.7"
 
 # azure storage name
 st_function_003_name = "stfuncaulapphml003"
@@ -383,6 +389,9 @@ st_function_003_repl_type = "LRS"
 # azure function app name
 func_app_003_name = "func-online-notification-hml-online"
 
+# azure function site config application stack version
+func_app_003_scas_version = "3.6"
+
 # azure storage name
 st_function_004_name = "stfuncaulapphml004"
 
@@ -394,6 +403,9 @@ st_function_004_repl_type = "LRS"
 
 # azure function app name
 func_app_004_name = "func-magento-integration-hml-queue-consumer"
+
+# azure function site config application stack version
+func_app_004_scas_version = "3.7"
 
 # azure storage name
 st_function_005_name = "stfuncaulapphml005"
@@ -407,6 +419,9 @@ st_function_005_repl_type = "LRS"
 # azure function app name
 func_app_005_name = "func-send-notification-hml-sender"
 
+# azure function site config application stack version
+func_app_005_scas_version = "3.7"
+
 # azure storage name
 st_function_006_name = "stfuncaulapphml006"
 
@@ -419,6 +434,9 @@ st_function_006_repl_type = "LRS"
 # azure function app name
 func_app_006_name = "func-file-integration-hml-custom-resource-existing-s3"
 
+# azure function site config application stack version
+func_app_006_scas_version = "12"
+
 # azure storage name
 st_function_007_name = "stfuncaulapphml007"
 
@@ -430,6 +448,9 @@ st_function_007_repl_type = "LRS"
 
 # azure function app name
 func_app_007_name = "func-magento-integration-hml"
+
+# azure function site config application stack version
+func_app_007_scas_version = "3.7"
 
 # end of azure function app
 

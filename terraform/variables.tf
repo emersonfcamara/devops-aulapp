@@ -684,6 +684,12 @@ variable "func_app_001_name" {
   default     = "func-001"
 }
 
+# azure function site config application stack version
+variable "func_app_001_scas_version" {
+  description = "The azure function site config application stack version"
+  default     = "3.7"
+}
+
 # azure storage name
 variable "st_function_002_name" {
   description = "The azure function name"
@@ -706,6 +712,12 @@ variable "st_function_002_repl_type" {
 variable "func_app_002_name" {
   description = "The azure function app name"
   default     = "func-002"
+}
+
+# azure function site config application stack version
+variable "func_app_002_scas_version" {
+  description = "The azure function site config application stack version"
+  default     = "3.7"
 }
 
 # azure storage name
@@ -732,6 +744,12 @@ variable "func_app_003_name" {
   default     = "func-003"
 }
 
+# azure function site config application stack version
+variable "func_app_003_scas_version" {
+  description = "The azure function site config application stack version"
+  default     = "3.7"
+}
+
 # azure storage name
 variable "st_function_004_name" {
   description = "The azure function name"
@@ -754,6 +772,12 @@ variable "st_function_004_repl_type" {
 variable "func_app_004_name" {
   description = "The azure function app name"
   default     = "func-004"
+}
+
+# azure function site config application stack version
+variable "func_app_004_scas_version" {
+  description = "The azure function site config application stack version"
+  default     = "3.7"
 }
 
 # azure storage name
@@ -780,6 +804,12 @@ variable "func_app_005_name" {
   default     = "func-005"
 }
 
+# azure function site config application stack version
+variable "func_app_005_scas_version" {
+  description = "The azure function site config application stack version"
+  default     = "3.7"
+}
+
 # azure storage name
 variable "st_function_006_name" {
   description = "The azure function name"
@@ -804,6 +834,12 @@ variable "func_app_006_name" {
   default     = "func-006"
 }
 
+# azure function site config application stack version
+variable "func_app_006_scas_version" {
+  description = "The azure function site config application stack version"
+  default     = "12"
+}
+
 # azure storage name
 variable "st_function_007_name" {
   description = "The azure function name"
@@ -826,6 +862,12 @@ variable "st_function_007_repl_type" {
 variable "func_app_007_name" {
   description = "The azure function app name"
   default     = "func-007"
+}
+
+# azure function site config application stack version
+variable "func_app_007_scas_version" {
+  description = "The azure function site config application stack version"
+  default     = "3.7"
 }
 
 # end of azure function app
