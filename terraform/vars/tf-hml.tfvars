@@ -222,7 +222,7 @@ cdnp_001_sku  = "Standard_Microsoft"
 
 # mysql section
 # mysql server name
-mysql_001_name = "mysql-hml-001"
+mysql_001_name = "mysql-aulapp-hml-001"
 
 # mysql server version
 mysql_001_version = "5.7"
