@@ -483,6 +483,12 @@ variable "pep_mysql_001_ismc" {
   default     = "false"
 }
 
+# private endpoint dns zone group
+variable "pep_mysql_001_pdzg_name" {
+  description = "The private endpoint dns zone group"
+  default     = "pep-mysql-001-pdzg"
+}
+
 # end of private endpoint section
 
 # private dns section
