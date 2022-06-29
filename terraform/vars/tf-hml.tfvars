@@ -237,10 +237,10 @@ mysql_001_admin_password = "t2wwJdHYsfAJ"
 mysql_001_tls_version = "TLS1_2"
 
 # mysql server sku
-mysql_001_sku = "B_Gen5_2"
+mysql_001_sku = "GP_Gen5_2"
 
 # mysql server storage megabytes
-mysql_001_storage_mb = "5120"
+mysql_001_storage_mb = "10240"
 
 # mysql server backup georedudant
 mysql_001_back_geo = "false"
