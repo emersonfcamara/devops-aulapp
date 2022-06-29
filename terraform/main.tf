@@ -319,20 +319,6 @@ resource "azurerm_cdn_profile" "cdnp_001" {
 
 # mysql section
 
-#resource "azurerm_mssql_server" "mysql_001" {
-#  name                         = "${var.mysql_001_name}"
-#  resource_group_name          = "${azurerm_resource_group.rg_database.name}"
-#  location                     = "${var.location}"
-#  version                      = "${var.mysql_001_version}"
-#  administrator_login          = "${var.mysql_001_admin_login}"
-#  administrator_login_password = "${var.mysql_001_admin_password}"
-#  minimum_tls_version          = "${var.mysql_001_tls_version}"
-#
-#  depends_on = [
-#    azurerm_resource_group.rg_security
-#  ]
-#}
-
 resource "azurerm_mysql_server" "mysql_001" {
   name                = "${var.mysql_001_name}"
   location            = "${var.location}"
@@ -347,7 +333,7 @@ resource "azurerm_mysql_server" "mysql_001" {
 
   geo_redundant_backup_enabled      = "${var.mysql_001_back_geo}"
   ssl_enforcement_enabled           = "${var.mysql_001_ssl_enabled}"
-  #ssl_minimal_tls_version_enforced  = "${var.mysql_001_tls_version}"
+  ssl_minimal_tls_version_enforced  = "${var.mysql_001_tls_version}"
 
   depends_on = [
     azurerm_resource_group.rg_security
@@ -361,7 +347,7 @@ resource "azurerm_mysql_server" "mysql_001" {
 resource "azurerm_private_endpoint" "pep_mysql_001" {
   name                = "${var.pep_mysql_001_name}"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_security.name}"
+  resource_group_name = "${azurerm_resource_group.rg_database.name}"
   subnet_id           = "${azurerm_subnet.snet_ap_hml_db.id}"
 
   private_service_connection {
@@ -377,7 +363,7 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
   }
 
   depends_on = [
-    azurerm_resource_group.rg_security,
+    azurerm_resource_group.rg_database,
     azurerm_mysql_server.mysql_001,
     azurerm_subnet.snet_ap_hml_db,
     azurerm_private_dns_zone.pdnsz_001
