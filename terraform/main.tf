@@ -366,7 +366,7 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
 
   private_service_connection {
     name                           = "${var.pep_mysql_001_service_name}"
-    private_connection_resource_id = "${azurerm_mssql_server.mysql_001.id}"
+    private_connection_resource_id = "${azurerm_mysql_server.mysql_001.id}"
     subresource_names              = "${var.pep_mysql_001_subresource_name}"
     is_manual_connection           = "${var.pep_mysql_001_ismc}"
   }
@@ -378,7 +378,7 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
 
   depends_on = [
     azurerm_resource_group.rg_security,
-    azurerm_mssql_server.mysql_001,
+    azurerm_mysql_server.mysql_001,
     azurerm_subnet.snet_ap_hml_db,
     azurerm_private_dns_zone.pdnsz_001
   ]
