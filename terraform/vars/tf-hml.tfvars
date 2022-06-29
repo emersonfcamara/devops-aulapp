@@ -251,6 +251,9 @@ pep_mysql_001_subresource_name = ["sqlServer"]
 # private endpoint is manual connection
 pep_mysql_001_ismc = "false"
 
+# private endpoint dns zone group
+pep_mysql_001_pdzg_name = "pep-mysql-001-pdzg"
+
 # end of private endpoint section
 
 # private dns section

@@ -350,10 +350,16 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
     is_manual_connection           = "${var.pep_mysql_001_ismc}"
   }
 
+  private_dns_zone_group{
+    name                 = "${var.pep_mysql_001_pdzg_name}"
+    private_dns_zone_ids = ["${azurerm_private_dns_zone.pdnsz_001.id}"]
+  }
+
   depends_on = [
     azurerm_resource_group.rg_security,
     azurerm_mssql_server.mysql_001,
-    azurerm_subnet.snet_ap_hml_db
+    azurerm_subnet.snet_ap_hml_db,
+    azurerm_private_dns_zone.pdnsz_001
   ]
 }
 
