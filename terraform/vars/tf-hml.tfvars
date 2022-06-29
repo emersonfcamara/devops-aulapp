@@ -234,7 +234,7 @@ mysql_001_admin_login = "admindbuser"
 mysql_001_admin_password = "t2wwJdHYsfAJ"
 
 # mysql server tls version
-mysql_001_tls_version = ""
+mysql_001_tls_version = "TLS1_2"
 
 # mysql server sku
 mysql_001_sku = "B_Gen5_2"
