@@ -453,7 +453,7 @@ variable "mysql_001_admin_password" {
 # mysql server tls version
 variable "mysql_001_tls_version" {
   description = "The mysql server tls version"
-  default     = "TLS1_2"
+  default     = "1.2"
 }
 
 # mysql server sku
