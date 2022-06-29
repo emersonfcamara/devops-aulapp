@@ -319,14 +319,35 @@ resource "azurerm_cdn_profile" "cdnp_001" {
 
 # mysql section
 
-resource "azurerm_mssql_server" "mysql_001" {
-  name                         = "${var.mysql_001_name}"
-  resource_group_name          = "${azurerm_resource_group.rg_database.name}"
-  location                     = "${var.location}"
-  version                      = "${var.mysql_001_version}"
+#resource "azurerm_mssql_server" "mysql_001" {
+#  name                         = "${var.mysql_001_name}"
+#  resource_group_name          = "${azurerm_resource_group.rg_database.name}"
+#  location                     = "${var.location}"
+#  version                      = "${var.mysql_001_version}"
+#  administrator_login          = "${var.mysql_001_admin_login}"
+#  administrator_login_password = "${var.mysql_001_admin_password}"
+#  minimum_tls_version          = "${var.mysql_001_tls_version}"
+#
+#  depends_on = [
+#    azurerm_resource_group.rg_security
+#  ]
+#}
+
+resource "azurerm_mysql_server" "mysql_001" {
+  name                = "${var.mysql_001_name}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.rg_database.name}"
+
   administrator_login          = "${var.mysql_001_admin_login}"
   administrator_login_password = "${var.mysql_001_admin_password}"
-  minimum_tls_version          = "${var.mysql_001_tls_version}"
+
+  sku_name   = "${var.mysql_001_sku}"
+  storage_mb = "${var.mysql_001_storage_mb}"
+  version    = "${var.mysql_001_version}"
+
+  geo_redundant_backup_enabled      = "${var.mysql_001_back_geo}"
+  ssl_enforcement_enabled           = "${var.mysql_001_ssl_enabled}"
+  ssl_minimal_tls_version_enforced  = "${var.mysql_001_tls_version}"
 
   depends_on = [
     azurerm_resource_group.rg_security

@@ -225,7 +225,7 @@ cdnp_001_sku  = "Standard_Microsoft"
 mysql_001_name = "mysql-hml-001"
 
 # mysql server version
-mysql_001_version = "12.0"
+mysql_001_version = "5.7"
 
 # mysql server admin login
 mysql_001_admin_login = "admindbuser"
@@ -234,7 +234,19 @@ mysql_001_admin_login = "admindbuser"
 mysql_001_admin_password = "t2wwJdHYsfAJ"
 
 # mysql server tls version
-mysql_001_tls_version = "1.2"
+mysql_001_tls_version = "TLS1_2"
+
+# mysql server sku
+mysql_001_sku = "B_Gen5_2"
+
+# mysql server storage megabytes
+mysql_001_storage_mb = "10240"
+
+# mysql server backup georedudant
+mysql_001_back_geo = "false"
+
+# mysql server ssl enabled
+mysql_001_ssl_enabled = "false"
 
 # end of mysql section
 

@@ -435,7 +435,7 @@ variable "mysql_001_name" {
 # mysql server version
 variable "mysql_001_version" {
   description = "The mysql server version"
-  default     = "12.0"
+  default     = "5.7"
 }
 
 # mysql server admin login
@@ -453,7 +453,31 @@ variable "mysql_001_admin_password" {
 # mysql server tls version
 variable "mysql_001_tls_version" {
   description = "The mysql server tls version"
-  default     = "1.2"
+  default     = "TLS1_2"
+}
+
+# mysql server sku
+variable "mysql_001_sku" {
+  description = "The mysql server sku"
+  default     = "B_Gen5_2"
+}
+
+# mysql server storage megabytes
+variable "mysql_001_storage_mb" {
+  description = "The mysql server storage megabytes"
+  default     = "10240"
+}
+
+# mysql server backup georedudant
+variable "mysql_001_back_geo" {
+  description = "The mysql server backup georedudant"
+  default     = "false"
+}
+
+# mysql server ssl enabled
+variable "mysql_001_ssl_enabled" {
+  description = "The mysql server ssl enabled"
+  default     = "false"
 }
 
 # end of mysql section
