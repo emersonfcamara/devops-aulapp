@@ -776,4 +776,36 @@ resource "azurerm_servicebus_namespace" "sb_ap_001" {
   ]
 }
 
+resource "azurerm_servicebus_queue" "sbs_enrich_uat" {
+  name         = "${var.sbs_enrich_uat_name}"
+  namespace_id = azurerm_servicebus_namespace.sb_ap_001.id
+
+  enable_partitioning = "${var.sbs_enrich_uat_ep}"
+  dead_lettering_on_message_expiration = "${var.sbs_enrich_uat_dlq}"
+}
+
+resource "azurerm_servicebus_queue" "sbs_file_integration_uat" {
+  name         = "${var.sbs_file_integration_uat_name}"
+  namespace_id = azurerm_servicebus_namespace.sb_ap_001.id
+
+  enable_partitioning = "${var.sbs_file_integration_uat_ep}"
+  dead_lettering_on_message_expiration = "${var.sbs_file_integration_uat_dlq}"
+}
+
+resource "azurerm_servicebus_queue" "sbs_magento_integration_uat" {
+  name         = "${var.sbs_magento_integration_uat_name}"
+  namespace_id = azurerm_servicebus_namespace.sb_ap_001.id
+
+  enable_partitioning = "${var.sbs_magento_integration_uat_ep}"
+  dead_lettering_on_message_expiration = "${var.sbs_magento_integration_uat_dlq}"
+}
+
+resource "azurerm_servicebus_queue" "sbs_notification_online_uat" {
+  name         = "${var.sbs_notification_online_uat_name}"
+  namespace_id = azurerm_servicebus_namespace.sb_ap_001.id
+
+  enable_partitioning = "${var.sbs_notification_online_uat_ep}"
+  dead_lettering_on_message_expiration = "${var.sbs_notification_online_uat_dlq}"
+}
+
 # end of service bus section

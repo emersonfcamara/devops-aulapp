@@ -330,7 +330,7 @@ aks_ap_001_npn = "default"
 aks_ap_001_nc = "1"
 
 # kubernetes node pool vm tier
-aks_ap_001_vm_size = "Standard_D2_v2"
+aks_ap_001_vm_size = "Standard_B2ms"
 
 # kubernetes identity type
 aks_ap_001_identity_type = "UserAssigned"
@@ -460,5 +460,41 @@ sb_ap_001_name = "sb-hml-001"
 
 # azure service bus sku
 sb_ap_001_sku = "Standard"
+
+# azure service queue name
+sbs_enrich_uat_name = "sbs-enrich-uat"
+
+# azure service bus queue partition enabled"
+sbs_enrich_uat_ep = "true"
+
+# azure service bus queue dead lead queue enabled"
+sbs_enrich_uat_dlq = "false"
+
+# azure service queue name
+sbs_file_integration_uat_name = "sbs-file-integration-uat"
+
+# azure service bus queue partition enabled"
+sbs_file_integration_uat_ep = "true"
+
+# azure service bus queue dead lead queue enabled"
+sbs_file_integration_uat_dlq = "false"
+
+# azure service queue name
+sbs_magento_integration_uat_name = "sbs-magento-integration-uat"
+
+# azure service bus queue partition enabled"
+sbs_magento_integration_uat_ep = "true"
+
+# azure service bus queue dead lead queue enabled"
+sbs_magento_integration_uat_dlq = "false"
+
+# azure service queue name
+sbs_notification_online_uat_name = "sbs-notification-online-uat"
+
+# azure service bus queue partition enabled"
+sbs_notification_online_uat_ep = "true"
+
+# azure service bus queue dead lead queue enabled"
+sbs_notification_online_uat_dlq = "true"
 
 # end of service bus section

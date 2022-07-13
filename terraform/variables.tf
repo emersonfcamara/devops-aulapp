@@ -885,4 +885,76 @@ variable "sb_ap_001_sku" {
   default     = "Standard"
 }
 
+# azure service queue name
+variable "sbs_enrich_uat_name" {
+  description = "The service bus queue name"
+  default     = "sbs-enrich-uat"
+}
+
+# azure service bus queue partition enabled"
+variable "sbs_enrich_uat_ep" {
+  description = "The service bus queue partition enabled"
+  default     = "true"
+}
+
+# azure service bus queue dead lead queue enabled"
+variable "sbs_enrich_uat_dlq" {
+  description = "The service bus queue dead lead queue enabled"
+  default     = "false"
+}
+
+# azure service queue name
+variable "sbs_file_integration_uat_name" {
+  description = "The service bus queue name"
+  default     = "sbs-file-integration-uat"
+}
+
+# azure service bus queue partition enabled"
+variable "sbs_file_integration_uat_ep" {
+  description = "The service bus queue partition enabled"
+  default     = "true"
+}
+
+# azure service bus queue dead lead queue enabled"
+variable "sbs_file_integration_uat_dlq" {
+  description = "The service bus queue dead lead queue enabled"
+  default     = "false"
+}
+
+# azure service queue name
+variable "sbs_magento_integration_uat_name" {
+  description = "The service bus queue name"
+  default     = "sbs-magento-integration-uat"
+}
+
+# azure service bus queue partition enabled"
+variable "sbs_magento_integration_uat_ep" {
+  description = "The service bus queue partition enabled"
+  default     = "true"
+}
+
+# azure service bus queue dead lead queue enabled"
+variable "sbs_magento_integration_uat_dlq" {
+  description = "The service bus queue dead lead queue enabled"
+  default     = "false"
+}
+
+# azure service queue name
+variable "sbs_notification_online_uat_name" {
+  description = "The service bus queue name"
+  default     = "sbs-notification-online-uat"
+}
+
+# azure service bus queue partition enabled"
+variable "sbs_notification_online_uat_ep" {
+  description = "The service bus queue partition enabled"
+  default     = "true"
+}
+
+# azure service bus queue dead lead queue enabled"
+variable "sbs_notification_online_uat_dlq" {
+  description = "The service bus queue dead lead queue enabled"
+  default     = "true"
+}
+
 # end of service bus section
