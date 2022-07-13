@@ -327,7 +327,7 @@ aks_ap_001_version = "1.22.6"
 aks_ap_001_npn = "default"
 
 # kubernetes node pool node count
-aks_ap_001_nc = "1"
+aks_ap_001_nc = "2"
 
 # kubernetes node pool vm tier
 aks_ap_001_vm_size = "Standard_B2ms"
