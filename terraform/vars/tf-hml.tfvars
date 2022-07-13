@@ -390,7 +390,7 @@ st_function_003_repl_type = "LRS"
 func_app_003_name = "func-online-notification-hml-online"
 
 # azure function site config application stack version
-func_app_003_scas_version = "3.6"
+func_app_003_scas_version = "3.7"
 
 # azure storage name
 st_function_004_name = "stfuncaulapphml004"
