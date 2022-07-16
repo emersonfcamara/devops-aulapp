@@ -9,51 +9,51 @@
 location = "eastus2"
 
 # resource group infra name
-resource_group_rg_infra = "rg-hml-infra"
+resource_group_rg_infra = "rg-hlg-infra"
 
 # resource group application name
-resource_group_rg_application = "rg-hml-application"
+resource_group_rg_application = "rg-hlg-application"
 
 # resource group cache name
-resource_group_rg_cache = "rg-hml-cache"
+resource_group_rg_cache = "rg-hlg-cache"
 
 # resource group security name
-resource_group_rg_security = "rg-hml-security"
+resource_group_rg_security = "rg-hlg-security"
 
 # resource group database name
-resource_group_rg_database = "rg-hml-database"
+resource_group_rg_database = "rg-hlg-database"
 
 # resource group queue name
-resource_group_rg_queue = "rg-hml-queue"
+resource_group_rg_queue = "rg-hlg-queue"
 # end of general variables
 
 # network variables
 # virtual network name
-virtual_network_name = "vnet-ap-hml-001"
+virtual_network_name = "vnet-ap-hlg-001"
 
 # virtual network address spaces
 network_address_space = ["10.5.0.0/16", "10.6.0.0/20"]
 
 # subnet name for application gateway
-snet_ap_agw_name = "snet-ap-hml-agw"
+snet_ap_agw_name = "snet-ap-hlg-agw"
 
 # subnet address for application gateway
 snet_ap_agw_prefix = "10.5.1.0/24"
 
 # subnet name for kubernetes
-snet_ap_aks_name = "snet-ap-hml-aks"
+snet_ap_aks_name = "snet-ap-hlg-aks"
 
 # subnet address for kubernetes
 snet_ap_aks_prefix = "10.6.0.0/20"
 
 # subnet name for database
-snet_ap_db_name = "snet-ap-hml-db"
+snet_ap_db_name = "snet-ap-hlg-db"
 
 # subnet address for database
 snet_ap_db_prefix = "10.5.0.0/24"
 
 # public ip name for application gateway
-pip_agw_ap_001_name = "pip-agw-ap-hml-001"
+pip_agw_ap_001_name = "pip-agw-ap-hlg-001"
 
 # public ip allocation method for application gateway
 pip_agw_ap_001_allocation_method = "Static"
@@ -62,7 +62,7 @@ pip_agw_ap_001_allocation_method = "Static"
 pip_agw_ap_001_sku = "Standard"
 
 # front door name
-fd_aulapp_name = "fd-hml-aulapp"
+fd_aulapp_name = "fd-hlg-aulapp"
 
 # front door routing rule name
 fd_aulapp_rr_name = "fd-aulapp-rr-name"
@@ -104,7 +104,7 @@ fd_aulapp_fe_name = "fd-aulapp-fe-name"
 fd_aulapp_fe_hn = "fd-aulapp-fe-hn.azurefd.net"
 
 # application gateway name
-agw_ap_001_name = "agw-ap-hml-001"
+agw_ap_001_name = "agw-ap-hlg-001"
 
 # application gateway sku
 agw_ap_001_sku = "Standard_v2"
@@ -116,22 +116,22 @@ agw_ap_001_sku_tier = "Standard_v2"
 agw_ap_001_capacity = "2"
 
 # application gateway ip configuration
-agw_ap_001_ip_conf = "agw-ap-hml-001-ip-configuration"
+agw_ap_001_ip_conf = "agw-ap-hlg-001-ip-configuration"
 
 # application gateway frontend port name
-agw_ap_001_fp_name = "agw-ap-hml-001-fp-name"
+agw_ap_001_fp_name = "agw-ap-hlg-001-fp-name"
 
 # application gateway frontend port number
 agw_ap_001_fp_number = "80"
 
 # application gateway frontend port ip name
-agw_ap_001_fp_ip_name = "agw-ap-hml-001-fp-ip-name"
+agw_ap_001_fp_ip_name = "agw-ap-hlg-001-fp-ip-name"
 
 # application gateway back address poll name
-agw_ap_001_bap_name = "agw-ap-hml-001-bap-name"
+agw_ap_001_bap_name = "agw-ap-hlg-001-bap-name"
 
 # application gateway backend https name
-agw_ap_001_bhs_name = "agw-ap-hml-001-bhs-name"
+agw_ap_001_bhs_name = "agw-ap-hlg-001-bhs-name"
 
 # application gateway backend https cookie base affinity
 agw_ap_001_bhs_cba = "Disabled"
@@ -149,19 +149,19 @@ agw_ap_001_bhs_protocol = "Http"
 agw_ap_001_bhs_rt = "60"
 
 # application gateway http listener name
-agw_ap_001_hl_name = "agw-ap-hml-001-hl-name"
+agw_ap_001_hl_name = "agw-ap-hlg-001-hl-name"
 
 # application gateway http listener front ip configuration name
-agw_ap_001_hl_ficn = "agw-ap-hml-001-hl-ficn"
+agw_ap_001_hl_ficn = "agw-ap-hlg-001-hl-ficn"
 
 # application gateway http listener front port name
-agw_ap_001_hl_port_name = "agw-ap-hml-001-hl-port-name"
+agw_ap_001_hl_port_name = "agw-ap-hlg-001-hl-port-name"
 
 # application gateway http listener protocol
 agw_ap_001_hl_protocol = "Http"
 
 # application gateway request routing rule name
-agw_ap_001_rrr_name = "agw-ap-hml-001-rrr-name"
+agw_ap_001_rrr_name = "agw-ap-hlg-001-rrr-name"
 
 # application gateway request routing rule type
 agw_ap_001_rrr_rule_type = "Basic"
@@ -172,7 +172,7 @@ agw_ap_001_rrr_priority = "10"
 
 # storage variables
 # storage account name for media files
-stamedia_name = "stahmlmedia"
+stamedia_name = "stahlgmedia"
 
 # storage account tier for media files
 stamedia_tier = "Standard"
@@ -181,7 +181,7 @@ stamedia_tier = "Standard"
 stamedia_replica_type = "LRS"
 
 # storage account name for spa site
-staspa_name = "stahmlspa"
+staspa_name = "stahlgspa"
 
 # storage account tier for spa site
 staspa_tier = "Standard"
@@ -192,7 +192,7 @@ staspa_replica_type = "LRS"
 
 # key vault section
 # key vault name
-kv_ap_001_name = "kv-ap-hml-001"
+kv_ap_001_name = "kv-ap-hlg-001"
 
 # key vault disk encryption
 kv_ap_001_disk_encryption = "true"
@@ -213,7 +213,7 @@ kv_ap_001_tenant_id = "b84fa403-e0cd-458c-b2e2-6538be09e2d8"
 
 # microsoft cdn profile section
 # microsoft cdn profile name
-cdnp_001_name = "cdnp-hml-001"
+cdnp_001_name = "cdnp-hlg-001"
 
 # microsoft cdn profile sku
 cdnp_001_sku  = "Standard_Microsoft"
@@ -222,7 +222,7 @@ cdnp_001_sku  = "Standard_Microsoft"
 
 # mysql section
 # mysql server name
-mysql_001_name = "mysql-aulapp-hml-001"
+mysql_001_name = "mysql-aulapp-hlg-001"
 
 # mysql server version
 mysql_001_version = "5.7"
@@ -252,10 +252,10 @@ mysql_001_ssl_enabled = "true"
 
 # private endpoint section
 # private endpoint name
-pep_mysql_001_name = "pep-mysql-hml-001"
+pep_mysql_001_name = "pep-mysql-hlg-001"
 
 # private endpoint service name
-pep_mysql_001_service_name = "pep-sn-mysql-hml-connection"
+pep_mysql_001_service_name = "pep-sn-mysql-hlg-connection"
 
 # private endpoint subresource names
 pep_mysql_001_subresource_name = ["mysqlServer"]
@@ -270,10 +270,10 @@ pep_mysql_001_pdzg_name = "pep-mysql-001-pdzg"
 
 # private dns section
 # private dns zone name
-pdnsz_001_name = "aulapphml.com"
+pdnsz_001_name = "aulapphlg.com"
 
 # private dns zone virtual network link
-pdnsz_vnet_001_name = "pdnsz-vnet-hml-001"
+pdnsz_vnet_001_name = "pdnsz-vnet-hlg-001"
 
 # private dns zone virtual network enabled auto registration
 pdnsz_vnet_001_re = "true"
@@ -282,25 +282,25 @@ pdnsz_vnet_001_re = "true"
 
 # user assigned identity section
 # user assigned identity name
-aks_ap_001_id_name = "aks-ap-hml-001-id"
+aks_ap_001_id_name = "aks-ap-hlg-001-id"
 
 # end of user assigned identity section
 
 # application insights section
 # application insights name
-appi_ap_001_name = "appi-ap-hml-001"
+appi_ap_001_name = "appi-ap-hlg-001"
 
 # application insights application type
 appi_ap_001_type = "Node.JS"
 
 # application insights action rule group name
-acg_ap_001_name = "ag-hml-001"
+acg_ap_001_name = "ag-hlg-001"
 
 # application insights action rule group short name
-acg_ap_001_short_name = "ag-hml-001"
+acg_ap_001_short_name = "ag-hlg-001"
 
 # application insights smart detector alert rule name
-sdar_app_001_name = "sdar-ag-hml-001"
+sdar_app_001_name = "sdar-ag-hlg-001"
 
 # application insights smart detector alert rule
 sdar_app_001_severity = "Sev0"
@@ -315,10 +315,10 @@ sdar_app_001_detector_type = "FailureAnomaliesDetector"
 
 # kubernetes section
 # kubernetes name
-aks_ap_001_name = "aks-ap-hml-001"
+aks_ap_001_name = "aks-ap-hlg-001"
 
 # kubernetes dns prefix
-aks_ap_001_dns_prefix = "aks-ap-hml-001"
+aks_ap_001_dns_prefix = "aks-ap-hlg-001"
 
 # kubernetes version
 aks_ap_001_version = "1.22.6"
@@ -339,7 +339,7 @@ aks_ap_001_identity_type = "UserAssigned"
 
 # azure function app section
 # azure storage name
-st_function_001_name = "stfuncaulapphml001"
+st_function_001_name = "stfuncaulapphlg001"
 
 # azure storage tier
 st_function_001_tier = "Standard"
@@ -348,7 +348,7 @@ st_function_001_tier = "Standard"
 st_function_001_repl_type = "LRS"
 
 # azure function server plan name
-app_service_plan_001_name = "srv-func-ap-hml-001"
+app_service_plan_001_name = "srv-func-ap-hlg-001"
 
 # azure function server plan os type
 app_service_plan_001_os_type = "Linux"
@@ -357,13 +357,13 @@ app_service_plan_001_os_type = "Linux"
 app_service_plan_001_sku = "Y1"
 
  # azure function app name
-func_app_001_name = "func-file-integration-hml"
+func_app_001_name = "func-file-integration-hlg"
 
 # azure function site config application stack version
 func_app_001_scas_version = "3.7"
 
 # azure storage name
-st_function_002_name = "stfuncaulapphml002"
+st_function_002_name = "stfuncaulapphlg002"
 
 # azure storage tier
 st_function_002_tier = "Standard"
@@ -372,13 +372,13 @@ st_function_002_tier = "Standard"
 st_function_002_repl_type = "LRS"
 
 # azure function app name
-func_app_002_name = "func-file-integration-hml-queue-consumer"
+func_app_002_name = "func-file-integration-hlg-queue-consumer"
 
 # azure function site config application stack version
 func_app_002_scas_version = "3.7"
 
 # azure storage name
-st_function_003_name = "stfuncaulapphml003"
+st_function_003_name = "stfuncaulapphlg003"
 
 # azure storage tier
 st_function_003_tier = "Standard"
@@ -387,13 +387,13 @@ st_function_003_tier = "Standard"
 st_function_003_repl_type = "LRS"
 
 # azure function app name
-func_app_003_name = "func-online-notification-hml-online"
+func_app_003_name = "func-online-notification-hlg-online"
 
 # azure function site config application stack version
 func_app_003_scas_version = "3.7"
 
 # azure storage name
-st_function_004_name = "stfuncaulapphml004"
+st_function_004_name = "stfuncaulapphlg004"
 
 # azure storage tier
 st_function_004_tier = "Standard"
@@ -402,13 +402,13 @@ st_function_004_tier = "Standard"
 st_function_004_repl_type = "LRS"
 
 # azure function app name
-func_app_004_name = "func-magento-integration-hml-queue-consumer"
+func_app_004_name = "func-magento-integration-hlg-queue-consumer"
 
 # azure function site config application stack version
 func_app_004_scas_version = "3.7"
 
 # azure storage name
-st_function_005_name = "stfuncaulapphml005"
+st_function_005_name = "stfuncaulapphlg005"
 
 # azure storage tier
 st_function_005_tier = "Standard"
@@ -417,13 +417,13 @@ st_function_005_tier = "Standard"
 st_function_005_repl_type = "LRS"
 
 # azure function app name
-func_app_005_name = "func-send-notification-hml-sender"
+func_app_005_name = "func-send-notification-hlg-sender"
 
 # azure function site config application stack version
 func_app_005_scas_version = "3.7"
 
 # azure storage name
-st_function_006_name = "stfuncaulapphml006"
+st_function_006_name = "stfuncaulapphlg006"
 
 # azure storage tier
 st_function_006_tier = "Standard"
@@ -432,13 +432,13 @@ st_function_006_tier = "Standard"
 st_function_006_repl_type = "LRS"
 
 # azure function app name
-func_app_006_name = "func-file-integration-hml-custom-resource-existing-s3"
+func_app_006_name = "func-file-integration-hlg-custom-resource-existing-s3"
 
 # azure function site config application stack version
 func_app_006_scas_version = "12"
 
 # azure storage name
-st_function_007_name = "stfuncaulapphml007"
+st_function_007_name = "stfuncaulapphlg007"
 
 # azure storage tier
 st_function_007_tier = "Standard"
@@ -447,7 +447,7 @@ st_function_007_tier = "Standard"
 st_function_007_repl_type = "LRS"
 
 # azure function app name
-func_app_007_name = "func-magento-integration-hml"
+func_app_007_name = "func-magento-integration-hlg"
 
 # azure function site config application stack version
 func_app_007_scas_version = "3.7"
@@ -456,7 +456,7 @@ func_app_007_scas_version = "3.7"
 
 # service bus section
 # azure service bus name
-sb_ap_001_name = "sb-hml-001"
+sb_ap_001_name = "sb-hlg-001"
 
 # azure service bus sku
 sb_ap_001_sku = "Standard"

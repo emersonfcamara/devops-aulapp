@@ -22,7 +22,7 @@ terraform {
     resource_group_name  = "tfstate"
     storage_account_name = "stcloudshellusers"
     container_name       = "tfstate"
-    key                  = "hml-terraform.tfstate"
+    key                  = "hlg-terraform.tfstate"
   }
 }
 
@@ -93,7 +93,7 @@ resource "azurerm_virtual_network" "vnet" {
 # values will be used if the user does not override them. You can find all the
 # default variables in the variables.tf file. You can customize this demo by
 # making a copy of the terraform.tfvars.example file.
-resource "azurerm_subnet" "snet_ap_hml_agw" {
+resource "azurerm_subnet" "snet_ap_agw" {
   name                 = "${var.snet_ap_agw_name}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
@@ -105,7 +105,7 @@ resource "azurerm_subnet" "snet_ap_hml_agw" {
   ]
 }
 
-resource "azurerm_subnet" "snet_ap_hml_aks" {
+resource "azurerm_subnet" "snet_ap_aks" {
   name                 = "${var.snet_ap_aks_name}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
@@ -117,7 +117,7 @@ resource "azurerm_subnet" "snet_ap_hml_aks" {
   ]
 }
 
-resource "azurerm_subnet" "snet_ap_hml_db" {
+resource "azurerm_subnet" "snet_ap_db" {
   name                 = "${var.snet_ap_db_name}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
@@ -231,7 +231,7 @@ resource "azurerm_application_gateway" "agw_ap_001" {
 
   gateway_ip_configuration {
     name      = "${var.agw_ap_001_ip_conf}"
-    subnet_id = "${azurerm_subnet.snet_ap_hml_agw.id}"
+    subnet_id = "${azurerm_subnet.snet_ap_agw.id}"
   }
 
   frontend_port {
@@ -275,7 +275,7 @@ resource "azurerm_application_gateway" "agw_ap_001" {
 
   depends_on = [
     azurerm_resource_group.rg_infra,
-    azurerm_subnet.snet_ap_hml_agw,
+    azurerm_subnet.snet_ap_agw,
     azurerm_public_ip.pip_agw_ap_001
   ]
 }
@@ -348,7 +348,7 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
   name                = "${var.pep_mysql_001_name}"
   location            = "${var.location}"
   resource_group_name = "${azurerm_resource_group.rg_database.name}"
-  subnet_id           = "${azurerm_subnet.snet_ap_hml_db.id}"
+  subnet_id           = "${azurerm_subnet.snet_ap_db.id}"
 
   private_service_connection {
     name                           = "${var.pep_mysql_001_service_name}"
@@ -365,7 +365,7 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
   depends_on = [
     azurerm_resource_group.rg_database,
     azurerm_mysql_server.mysql_001,
-    azurerm_subnet.snet_ap_hml_db,
+    azurerm_subnet.snet_ap_db,
     azurerm_private_dns_zone.pdnsz_001
   ]
 }
@@ -472,7 +472,7 @@ resource "azurerm_kubernetes_cluster" "aks_ap_001" {
     name           = "${var.aks_ap_001_npn}"
     node_count     = "${var.aks_ap_001_nc}"
     vm_size        = "${var.aks_ap_001_vm_size}"
-    vnet_subnet_id = "${azurerm_subnet.snet_ap_hml_aks.id}"
+    vnet_subnet_id = "${azurerm_subnet.snet_ap_aks.id}"
   }
 
   identity {
@@ -488,7 +488,7 @@ resource "azurerm_kubernetes_cluster" "aks_ap_001" {
     azurerm_resource_group.rg_application,
     azurerm_application_insights.appi_ap_001,
     azurerm_user_assigned_identity.aks_ap_001_id,
-    azurerm_subnet.snet_ap_hml_aks,
+    azurerm_subnet.snet_ap_aks,
     azurerm_application_gateway.agw_ap_001
   ]
 }
