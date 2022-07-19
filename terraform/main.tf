@@ -338,7 +338,7 @@ resource "azurerm_mysql_server" "mysql_001" {
 
   geo_redundant_backup_enabled      = "${var.mysql_001_back_geo}"
   ssl_enforcement_enabled           = "${var.mysql_001_ssl_enabled}"
-  ssl_minimal_tls_version_enforced  = "${var.mysql_001_tls_version}"
+  ssl_minimal_tls_version_enforced  = "${var.mysql_001_ssl_enabled}" ? "true" : "${var.mysql_001_tls_version}"
 
   depends_on = [
     azurerm_resource_group.rg_security
