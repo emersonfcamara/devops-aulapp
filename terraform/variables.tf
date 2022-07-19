@@ -480,6 +480,11 @@ variable "mysql_001_ssl_enabled" {
   default     = "false"
 }
 
+variable "mysql_001_fwr_azuresvc_name" {
+  description = "The mysql server firewall rule name"
+  default     = "AzureSVC"
+}
+
 # end of mysql section
 
 # private endpoint section

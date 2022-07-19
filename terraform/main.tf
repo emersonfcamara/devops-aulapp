@@ -340,6 +340,15 @@ resource "azurerm_mysql_server" "mysql_001" {
   ]
 }
 
+# MySQL Firewall rule to permit connection from all Azure Services
+resource "azurerm_mysql_firewall_rule" "mysql_001_azuresvc" {
+  name                = "${var.mysql_001_fwr_azuresvc_name}"
+  resource_group_name = "${azurerm_resource_group.rg_database.name}"
+  server_name         = azurerm_mysql_server.mysql_001.name
+  start_ip_address    = "0.0.0.0"
+  end_ip_address      = "0.0.0.0"
+}
+
 # end o mysql section
 
 # private endpoint section

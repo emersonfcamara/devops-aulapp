@@ -248,6 +248,8 @@ mysql_001_back_geo = "false"
 # mysql server ssl enabled
 mysql_001_ssl_enabled = "false"
 
+mysql_001_fwr_azuresvc_name = "AzureService"
+
 # end of mysql section
 
 # private endpoint section
