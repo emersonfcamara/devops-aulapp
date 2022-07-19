@@ -238,6 +238,18 @@ variable "fd_aulapp_fe_hn" {
   default     = "fd-aulapp-fe-hn.azurefd.net"
 }
 
+# front door backend pool settings receive timeout
+variable "fd_aulapp_bps_rts" {
+  description = "The front door backend pool settings receive timeout"
+  default     = "0"
+}
+
+# front door backend pool settings certificate name check
+variable "fd_aulapp_bps_cnc" {
+  description = "The front door backend pool settings certificate name check"
+  default     = "false"
+}
+
 # application gateway name
 variable "agw_ap_001_name" {
   description = "The application gateway name"

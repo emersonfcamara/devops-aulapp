@@ -186,8 +186,8 @@ resource "azurerm_frontdoor" "fd_aulapp" {
   }
 
   backend_pool_settings {
-    backend_pools_send_receive_timeout_seconds   = 0
-    enforce_backend_pools_certificate_name_check = false
+    backend_pools_send_receive_timeout_seconds   = "${var.fd_aulapp_bps_rts}"
+    enforce_backend_pools_certificate_name_check = "${var.fd_aulapp_bps_cnc}"
   }
 
   backend_pool_load_balancing {

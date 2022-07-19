@@ -103,6 +103,12 @@ fd_aulapp_fe_name = "fd-aulapp-fe-name"
 # front door frontend host name
 fd_aulapp_fe_hn = "fd-aulapp-fe-hn.azurefd.net"
 
+# front door backend pool settings receive timeout
+fd_aulapp_bps_rts = "0"
+
+# front door backend pool settings certificate name check
+fd_aulapp_bps_cnc = "false"
+
 # application gateway name
 agw_ap_001_name = "agw-ap-hlg-001"
 
