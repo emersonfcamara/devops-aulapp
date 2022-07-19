@@ -246,7 +246,7 @@ mysql_001_storage_mb = "10240"
 mysql_001_back_geo = "false"
 
 # mysql server ssl enabled
-mysql_001_ssl_enabled = "true"
+mysql_001_ssl_enabled = "false"
 
 # end of mysql section
 
