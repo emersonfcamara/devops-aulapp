@@ -74,7 +74,7 @@ vng_ap_001_active_active = "false"
 vng_ap_001_enable_bgp = "false"
 
 # virtual network gateway sku
-vng_ap_001_sku = "Basic"
+vng_ap_001_sku = "VpnGw1"
 
 # virtual network gateway ip configuration name
 vng_ap_001_ic_name = "vng-ap-001-hlg-ic-name"
