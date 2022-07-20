@@ -79,9 +79,9 @@ resource "azurerm_resource_group" "rg_queue" {
 # network section
 resource "azurerm_virtual_network" "vnet" {
   name                = "${var.virtual_network_name}"
-  location            = "${azurerm_resource_group.rg_infra.location}"
+  location            = azurerm_resource_group.rg_infra.location
   address_space       = "${var.network_address_space}"
-  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name = azurerm_resource_group.rg_infra.name
 
   depends_on = [
     azurerm_resource_group.rg_infra
@@ -139,8 +139,8 @@ resource "azurerm_virtual_network_gateway" "vng_ap_001" {
 # making a copy of the terraform.tfvars.example file.
 resource "azurerm_subnet" "snet_ap_agw" {
   name                 = "${var.snet_ap_agw_name}"
-  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
-  resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  resource_group_name  = azurerm_resource_group.rg_infra.name
   address_prefixes     = ["${var.snet_ap_agw_prefix}"]
 
   depends_on = [
@@ -150,10 +150,11 @@ resource "azurerm_subnet" "snet_ap_agw" {
 }
 
 resource "azurerm_subnet" "snet_ap_aks" {
-  name                 = "${var.snet_ap_aks_name}"
-  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
-  resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
-  address_prefixes     = ["${var.snet_ap_aks_prefix}"]
+  name                  = "${var.snet_ap_aks_name}"
+  virtual_network_name  = azurerm_virtual_network.vnet.name
+  resource_group_name   = azurerm_resource_group.rg_infra.name
+  address_prefixes      = ["${var.snet_ap_aks_prefix}"]
+  enforce_private_link_endpoint_network_policies = "${var.snet_ap_aks_eplenp}"
 
   depends_on = [
     azurerm_resource_group.rg_infra,
@@ -163,8 +164,8 @@ resource "azurerm_subnet" "snet_ap_aks" {
 
 resource "azurerm_subnet" "snet_ap_db" {
   name                 = "${var.snet_ap_db_name}"
-  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
-  resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
+  virtual_network_name = azurerm_virtual_network.vnet.name
+  resource_group_name  = azurerm_resource_group.rg_infra.name
   address_prefixes     = ["${var.snet_ap_db_prefix}"]
 
   depends_on = [
@@ -176,8 +177,8 @@ resource "azurerm_subnet" "snet_ap_db" {
 # azure vpn point to site
 resource "azurerm_subnet" "snet_ap_vng" {
   name                 = "${var.snet_ap_vng_name}"
-  resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
-  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
+  resource_group_name  = azurerm_resource_group.rg_infra.name
+  virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["${var.snet_ap_vng_prefix}"]
 }
 
@@ -187,7 +188,7 @@ resource "azurerm_subnet" "snet_ap_vng" {
 resource "azurerm_public_ip" "pip_agw_ap_001" {
   name                         = "${var.pip_agw_ap_001_name}"
   location                     = "${var.location}"
-  resource_group_name          = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name          = azurerm_resource_group.rg_infra.name
   allocation_method            = "${var.pip_agw_ap_001_allocation_method}"
   sku                          = "${var.pip_agw_ap_001_sku}"
 
@@ -200,7 +201,7 @@ resource "azurerm_public_ip" "pip_agw_ap_001" {
 resource "azurerm_public_ip" "pip_vng_ap_001" {
   name                = "${var.pip_vng_ap_001_name}"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name = azurerm_resource_group.rg_infra.name
   allocation_method   = "${var.pip_vng_ap_001_allocation_method}"
   sku                 = "${var.pip_agw_ap_001_sku}"
 
@@ -211,7 +212,7 @@ resource "azurerm_public_ip" "pip_vng_ap_001" {
 
 resource "azurerm_storage_account" "stamedia" {
   name                     = "${var.stamedia_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name      = azurerm_resource_group.rg_infra.name
   location                 = "${var.location}"
   account_tier             = "${var.stamedia_tier}"
   account_replication_type = "${var.stamedia_replica_type}"
@@ -223,7 +224,7 @@ resource "azurerm_storage_account" "stamedia" {
 
 resource "azurerm_storage_account" "staspa" {
   name                     = "${var.staspa_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name      = azurerm_resource_group.rg_infra.name
   location                 = "${var.location}"
   account_tier             = "${var.staspa_tier}"
   account_replication_type = "${var.staspa_replica_type}"
@@ -237,7 +238,7 @@ resource "azurerm_storage_account" "staspa" {
 
 resource "azurerm_frontdoor" "fd_aulapp" {
   name                = "${var.fd_aulapp_name}"
-  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name = azurerm_resource_group.rg_infra.name
 
   routing_rule {
     name               = "${var.fd_aulapp_rr_name}"
@@ -290,7 +291,7 @@ resource "azurerm_frontdoor" "fd_aulapp" {
 
 resource "azurerm_application_gateway" "agw_ap_001" {
   name                = "${var.agw_ap_001_name}"
-  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name = azurerm_resource_group.rg_infra.name
   location            = "${var.location}"
 
   sku {
@@ -301,7 +302,7 @@ resource "azurerm_application_gateway" "agw_ap_001" {
 
   gateway_ip_configuration {
     name      = "${var.agw_ap_001_ip_conf}"
-    subnet_id = "${azurerm_subnet.snet_ap_agw.id}"
+    subnet_id = azurerm_subnet.snet_ap_agw.id
   }
 
   frontend_port {
@@ -357,7 +358,7 @@ resource "azurerm_application_gateway" "agw_ap_001" {
 resource "azurerm_key_vault" "kv_ap_001" {
   name                        = "${var.kv_ap_001_name}"
   location                    = "${var.location}"
-  resource_group_name         = "${azurerm_resource_group.rg_security.name}"
+  resource_group_name         = azurerm_resource_group.rg_security.name
   enabled_for_disk_encryption = "${var.kv_ap_001_disk_encryption}"
   tenant_id                   = "${var.kv_ap_001_tenant_id}"
   soft_delete_retention_days  = "${var.kv_ap_001_retention}"
@@ -377,7 +378,7 @@ resource "azurerm_key_vault" "kv_ap_001" {
 resource "azurerm_cdn_profile" "cdnp_001" {
   name                = "${var.cdnp_001_name}"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_cache.name}"
+  resource_group_name = azurerm_resource_group.rg_cache.name
   sku                 = "${var.cdnp_001_sku}"
 
   depends_on = [
@@ -392,7 +393,7 @@ resource "azurerm_cdn_profile" "cdnp_001" {
 resource "azurerm_mysql_server" "mysql_001" {
   name                = "${var.mysql_001_name}"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_database.name}"
+  resource_group_name = azurerm_resource_group.rg_database.name
 
   administrator_login          = "${var.mysql_001_admin_login}"
   administrator_login_password = "${var.mysql_001_admin_password}"
@@ -413,7 +414,7 @@ resource "azurerm_mysql_server" "mysql_001" {
 # MySQL Firewall rule to permit connection from all Azure Services
 resource "azurerm_mysql_firewall_rule" "mysql_001_azuresvc" {
   name                = "${var.mysql_001_fwr_azuresvc_name}"
-  resource_group_name = "${azurerm_resource_group.rg_database.name}"
+  resource_group_name = azurerm_resource_group.rg_database.name
   server_name         = azurerm_mysql_server.mysql_001.name
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"
@@ -426,19 +427,19 @@ resource "azurerm_mysql_firewall_rule" "mysql_001_azuresvc" {
 resource "azurerm_private_endpoint" "pep_mysql_001" {
   name                = "${var.pep_mysql_001_name}"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_database.name}"
-  subnet_id           = "${azurerm_subnet.snet_ap_db.id}"
+  resource_group_name = azurerm_resource_group.rg_database.name
+  subnet_id           = azurerm_subnet.snet_ap_db.id
 
   private_service_connection {
     name                           = "${var.pep_mysql_001_service_name}"
-    private_connection_resource_id = "${azurerm_mysql_server.mysql_001.id}"
+    private_connection_resource_id = azurerm_mysql_server.mysql_001.id
     subresource_names              = "${var.pep_mysql_001_subresource_name}"
     is_manual_connection           = "${var.pep_mysql_001_ismc}"
   }
 
   private_dns_zone_group{
     name                 = "${var.pep_mysql_001_pdzg_name}"
-    private_dns_zone_ids = ["${azurerm_private_dns_zone.pdnsz_001.id}"]
+    private_dns_zone_ids = [azurerm_private_dns_zone.pdnsz_001.id]
   }
 
   depends_on = [
@@ -455,7 +456,7 @@ resource "azurerm_private_endpoint" "pep_mysql_001" {
 
 resource "azurerm_private_dns_zone" "pdnsz_001" {
   name                = "${var.pdnsz_001_name}"
-  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  resource_group_name = azurerm_resource_group.rg_infra.name
 
   depends_on = [
     azurerm_resource_group.rg_infra
@@ -464,9 +465,9 @@ resource "azurerm_private_dns_zone" "pdnsz_001" {
 
 resource "azurerm_private_dns_zone_virtual_network_link" "pdnsz_vnet_001" {
   name                  = "${var.pdnsz_vnet_001_name}"
-  resource_group_name   = "${azurerm_resource_group.rg_infra.name}"
-  private_dns_zone_name = "${azurerm_private_dns_zone.pdnsz_001.name}"
-  virtual_network_id    = "${azurerm_virtual_network.vnet.id}"
+  resource_group_name   = azurerm_resource_group.rg_infra.name
+  private_dns_zone_name = azurerm_private_dns_zone.pdnsz_001.name
+  virtual_network_id    = azurerm_virtual_network.vnet.id
   registration_enabled  = "${var.pdnsz_vnet_001_re}"
 
   depends_on = [
@@ -481,7 +482,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "pdnsz_vnet_001" {
 # user assigned identity section
 
 resource "azurerm_user_assigned_identity" "aks_ap_001_id" {
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
   name = "${var.aks_ap_001_id_name}"
@@ -498,7 +499,7 @@ resource "azurerm_user_assigned_identity" "aks_ap_001_id" {
 resource "azurerm_application_insights" "appi_ap_001" {
   name                = "${var.appi_ap_001_name}"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   application_type    = "${var.appi_ap_001_type}"
 
   depends_on = [
@@ -508,7 +509,7 @@ resource "azurerm_application_insights" "appi_ap_001" {
 
 resource "azurerm_monitor_action_group" "acg_ap_001" {
   name                = "${var.acg_ap_001_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   short_name          = "${var.acg_ap_001_short_name}"
 
   depends_on = [
@@ -518,7 +519,7 @@ resource "azurerm_monitor_action_group" "acg_ap_001" {
 
 resource "azurerm_monitor_smart_detector_alert_rule" "sdar_app_001" {
   name                = "${var.sdar_app_001_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   severity            = "${var.sdar_app_001_severity}"
   scope_resource_ids  = [azurerm_application_insights.appi_ap_001.id]
   frequency           = "${var.sdar_app_001_frequency}"
@@ -542,7 +543,7 @@ resource "azurerm_monitor_smart_detector_alert_rule" "sdar_app_001" {
 resource "azurerm_kubernetes_cluster" "aks_ap_001" {
   name                    = "${var.aks_ap_001_name}"
   location                = "${var.location}"
-  resource_group_name     = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name     = azurerm_resource_group.rg_application.name
   dns_prefix              = "${var.aks_ap_001_dns_prefix}"
   kubernetes_version      = "${var.aks_ap_001_version}"
   private_cluster_enabled = "${var.aks_ap_001_private}"
@@ -552,16 +553,16 @@ resource "azurerm_kubernetes_cluster" "aks_ap_001" {
     name           = "${var.aks_ap_001_npn}"
     node_count     = "${var.aks_ap_001_nc}"
     vm_size        = "${var.aks_ap_001_vm_size}"
-    vnet_subnet_id = "${azurerm_subnet.snet_ap_aks.id}"
+    vnet_subnet_id = azurerm_subnet.snet_ap_aks.id
   }
 
   identity {
     type         = "${var.aks_ap_001_identity_type}"
-    identity_ids = ["${azurerm_user_assigned_identity.aks_ap_001_id.id}"]
+    identity_ids = [azurerm_user_assigned_identity.aks_ap_001_id.id]
   }
 
   ingress_application_gateway {
-    gateway_id = "${azurerm_application_gateway.agw_ap_001.id}"
+    gateway_id = azurerm_application_gateway.agw_ap_001.id
   }
 
   depends_on = [
@@ -579,7 +580,7 @@ resource "azurerm_kubernetes_cluster" "aks_ap_001" {
 
 resource "azurerm_storage_account" "st_function_001" {
   name                     = "${var.st_function_001_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name      = azurerm_resource_group.rg_application.name
   location                 = "${var.location}"
   account_tier             = "${var.st_function_001_tier}"
   account_replication_type = "${var.st_function_001_repl_type}"
@@ -591,7 +592,7 @@ resource "azurerm_storage_account" "st_function_001" {
 
 resource "azurerm_service_plan" "app_service_plan_001" {
   name                = "${var.app_service_plan_001_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
   os_type             = "${var.app_service_plan_001_os_type}"
   sku_name            = "${var.app_service_plan_001_sku}"
@@ -603,14 +604,14 @@ resource "azurerm_service_plan" "app_service_plan_001" {
 
 resource "azurerm_linux_function_app" "func_app_001" {
   name                = "${var.func_app_001_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
-  storage_account_name = "${azurerm_storage_account.st_function_001.name}"
-  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+  storage_account_name = azurerm_storage_account.st_function_001.name
+  service_plan_id      = azurerm_service_plan.app_service_plan_001.id
 
   site_config {
-    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+    application_insights_connection_string = azurerm_application_insights.appi_ap_001.connection_string
 
     application_stack{
       python_version = "${var.func_app_001_scas_version}"
@@ -627,7 +628,7 @@ resource "azurerm_linux_function_app" "func_app_001" {
 
 resource "azurerm_storage_account" "st_function_002" {
   name                     = "${var.st_function_002_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name      = azurerm_resource_group.rg_application.name
   location                 = "${var.location}"
   account_tier             = "${var.st_function_002_tier}"
   account_replication_type = "${var.st_function_002_repl_type}"
@@ -639,14 +640,14 @@ resource "azurerm_storage_account" "st_function_002" {
 
 resource "azurerm_linux_function_app" "func_app_002" {
   name                = "${var.func_app_002_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
-  storage_account_name = "${azurerm_storage_account.st_function_002.name}"
-  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+  storage_account_name = azurerm_storage_account.st_function_002.name
+  service_plan_id      = azurerm_service_plan.app_service_plan_001.id
 
   site_config {
-    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+    application_insights_connection_string = azurerm_application_insights.appi_ap_001.connection_string
 
     application_stack{
       python_version = "${var.func_app_002_scas_version}"
@@ -663,7 +664,7 @@ resource "azurerm_linux_function_app" "func_app_002" {
 
 resource "azurerm_storage_account" "st_function_003" {
   name                     = "${var.st_function_003_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name      = azurerm_resource_group.rg_application.name
   location                 = "${var.location}"
   account_tier             = "${var.st_function_003_tier}"
   account_replication_type = "${var.st_function_003_repl_type}"
@@ -675,14 +676,14 @@ resource "azurerm_storage_account" "st_function_003" {
 
 resource "azurerm_linux_function_app" "func_app_003" {
   name                = "${var.func_app_003_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
-  storage_account_name = "${azurerm_storage_account.st_function_003.name}"
-  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+  storage_account_name = azurerm_storage_account.st_function_003.name
+  service_plan_id      = azurerm_service_plan.app_service_plan_001.id
 
   site_config {
-    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+    application_insights_connection_string = azurerm_application_insights.appi_ap_001.connection_string
 
     application_stack{
       python_version = "${var.func_app_003_scas_version}"
@@ -699,7 +700,7 @@ resource "azurerm_linux_function_app" "func_app_003" {
 
 resource "azurerm_storage_account" "st_function_004" {
   name                     = "${var.st_function_004_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name      = azurerm_resource_group.rg_application.name
   location                 = "${var.location}"
   account_tier             = "${var.st_function_004_tier}"
   account_replication_type = "${var.st_function_004_repl_type}"
@@ -711,14 +712,14 @@ resource "azurerm_storage_account" "st_function_004" {
 
 resource "azurerm_linux_function_app" "func_app_004" {
   name                = "${var.func_app_004_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
-  storage_account_name = "${azurerm_storage_account.st_function_004.name}"
-  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+  storage_account_name = azurerm_storage_account.st_function_004.name
+  service_plan_id      = azurerm_service_plan.app_service_plan_001.id
 
   site_config {
-    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+    application_insights_connection_string = azurerm_application_insights.appi_ap_001.connection_string
 
     application_stack{
       python_version = "${var.func_app_004_scas_version}"
@@ -736,7 +737,7 @@ resource "azurerm_linux_function_app" "func_app_004" {
 
 resource "azurerm_storage_account" "st_function_005" {
   name                     = "${var.st_function_005_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name      = azurerm_resource_group.rg_application.name
   location                 = "${var.location}"
   account_tier             = "${var.st_function_005_tier}"
   account_replication_type = "${var.st_function_005_repl_type}"
@@ -748,14 +749,14 @@ resource "azurerm_storage_account" "st_function_005" {
 
 resource "azurerm_linux_function_app" "func_app_005" {
   name                = "${var.func_app_005_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
-  storage_account_name = "${azurerm_storage_account.st_function_005.name}"
-  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+  storage_account_name = azurerm_storage_account.st_function_005.name
+  service_plan_id      = azurerm_service_plan.app_service_plan_001.id
 
   site_config {
-    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+    application_insights_connection_string = azurerm_application_insights.appi_ap_001.connection_string
 
     application_stack{
       python_version = "${var.func_app_005_scas_version}"
@@ -772,7 +773,7 @@ resource "azurerm_linux_function_app" "func_app_005" {
 
 resource "azurerm_storage_account" "st_function_006" {
   name                     = "${var.st_function_006_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name      = azurerm_resource_group.rg_application.name
   location                 = "${var.location}"
   account_tier             = "${var.st_function_006_tier}"
   account_replication_type = "${var.st_function_006_repl_type}"
@@ -784,14 +785,14 @@ resource "azurerm_storage_account" "st_function_006" {
 
 resource "azurerm_linux_function_app" "func_app_006" {
   name                = "${var.func_app_006_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
-  storage_account_name = "${azurerm_storage_account.st_function_006.name}"
-  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+  storage_account_name = azurerm_storage_account.st_function_006.name
+  service_plan_id      = azurerm_service_plan.app_service_plan_001.id
 
   site_config {
-    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+    application_insights_connection_string = azurerm_application_insights.appi_ap_001.connection_string
 
     application_stack{
       node_version = "${var.func_app_006_scas_version}"
@@ -808,7 +809,7 @@ resource "azurerm_linux_function_app" "func_app_006" {
 
 resource "azurerm_storage_account" "st_function_007" {
   name                     = "${var.st_function_007_name}"
-  resource_group_name      = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name      = azurerm_resource_group.rg_application.name
   location                 = "${var.location}"
   account_tier             = "${var.st_function_007_tier}"
   account_replication_type = "${var.st_function_007_repl_type}"
@@ -820,14 +821,14 @@ resource "azurerm_storage_account" "st_function_007" {
 
 resource "azurerm_linux_function_app" "func_app_007" {
   name                = "${var.func_app_007_name}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
+  resource_group_name = azurerm_resource_group.rg_application.name
   location            = "${var.location}"
 
-  storage_account_name = "${azurerm_storage_account.st_function_007.name}"
-  service_plan_id      = "${azurerm_service_plan.app_service_plan_001.id}"
+  storage_account_name = azurerm_storage_account.st_function_007.name
+  service_plan_id      = azurerm_service_plan.app_service_plan_001.id
 
   site_config {
-    application_insights_connection_string = "${azurerm_application_insights.appi_ap_001.connection_string}"
+    application_insights_connection_string = azurerm_application_insights.appi_ap_001.connection_string
 
     application_stack{
       python_version = "${var.func_app_007_scas_version}"
@@ -848,7 +849,7 @@ resource "azurerm_linux_function_app" "func_app_007" {
 resource "azurerm_servicebus_namespace" "sb_ap_001" {
   name                = "${var.sb_ap_001_name}"
   location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_queue.name}"
+  resource_group_name = azurerm_resource_group.rg_queue.name
   sku                 = "${var.sb_ap_001_sku}"
 
   depends_on = [

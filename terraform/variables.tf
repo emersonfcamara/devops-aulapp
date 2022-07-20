@@ -124,6 +124,12 @@ variable "snet_ap_aks_prefix" {
   default     = "10.6.0.0/20"
 }
 
+# subnet private link network endpoint polices enabled
+variable "snet_ap_aks_eplenp" {
+  description = "The subnet private link network endpoint polices enabled"
+  default     = "true"
+}
+
 # subnet name for database
 variable "snet_ap_db_name" {
   description = "The name to use for the datanase subnet."
