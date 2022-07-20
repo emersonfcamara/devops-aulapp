@@ -136,6 +136,117 @@ variable "snet_ap_db_prefix" {
   default     = "10.5.0.0/24"
 }
 
+# subnet name for virtual network vpn gateway
+variable "snet_ap_vng_name" {
+  description = "The name to use for virtual network vpn gateway."
+  default     = "GatewaySubnet"
+}
+
+# subnet address for virtual network vpn gateway
+variable "snet_ap_vng_prefix" {
+  description = "The address to use for virtual network vpn gateway."
+  default     = "10.5.2.0/24"
+}
+
+# virtual network gateway name
+variable "vng_ap_001_name" {
+  description = "The network gateway name."
+  default     = "vng-ap-001"
+}
+
+# virtual network gateway type
+variable "vng_ap_001_type" {
+  description = "The network gateway type."
+  default     = "Vpn"
+}
+
+# virtual network gateway vpn type
+variable "vng_ap_001_vpn_type" {
+  description = "The network gateway vpn type."
+  default     = "RouteBased"
+}
+
+# virtual network gateway active active
+variable "vng_ap_001_active_active" {
+  description = "The virtual network gateway active active."
+  default     = "false"
+}
+
+# virtual network gateway enable bgp
+variable "vng_ap_001_enable_bgp" {
+  description = "The virtual network gateway enable bgp."
+  default     = "false"
+}
+
+# virtual network gateway sku
+variable "vng_ap_001_sku" {
+  description = "The virtual network gateway sku."
+  default     = "Basic"
+}
+
+# virtual network gateway ip configuration name
+variable "vng_ap_001_ic_name" {
+  description = "The virtual network gateway ip configuration name."
+  default     = "vng-ap-001-ic-name"
+}
+
+# virtual network gateway ip configuration public ip allocation
+variable "vng_ap_001_ic_pia" {
+  description = "The virtual network gateway ip configuration public ip allocation."
+  default     = "Dynamic"
+}
+
+# virtual network gateway vpn client configuration address
+variable "vng_ap_001_vcc_address" {
+  description = "The virtual network vpn client configuration address."
+  default     = ["10.7.0.0/24"]
+}
+
+# virtual network gateway vpn client configuration root certificate name
+variable "vng_ap_001_vcc_rc_name" {
+  description = "The virtual network vpn client configuration root certificate name."
+  default     = "DigiCert-Federated-ID-Root-CA"
+}
+
+# virtual network gateway vpn client configuration public cert data
+variable "vng_ap_001_vcc_rc_data" {
+  description = "The virtual network vpn client configuration public cert data."
+  default     = <<EOF
+MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
+Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
+BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
+Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
+QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
+zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
+GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
+GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
+Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
+DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
+HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
+jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
+9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
+QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
+uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
+WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
+M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
+EOF
+}
+
+# virtual network gateway vpn client configuration revoke certificate name
+variable "vng_ap_001_vcc_revc_name" {
+  description = "The virtual network vpn client configuration revoke certificate name."
+  default     = "Verizon-Global-Root-CA"
+}
+
+# virtual network gateway vpn client configuration revoke certificate thumb
+variable "vng_ap_001_vcc_revc_thumb" {
+  description = "The virtual network vpn client configuration revoke certificate thumb."
+  default     = "912198EEF23DCAC40939312FEE97DD560BAE49B1"
+}
+
 # public ip name for application gateway
 variable "pip_agw_ap_001_name" {
   description = "The name for public ip for application gateway 001."
@@ -151,6 +262,24 @@ variable "pip_agw_ap_001_allocation_method" {
 # public ip sku for application gateway
 variable "pip_agw_ap_001_sku" {
   description = "public ip sku for application gateway"
+  default     = "Standard"
+}
+
+# public ip name for virtual network gateway
+variable "pip_vng_ap_001_name" {
+  description = "The name for public ip for virtual network gateway"
+  default     = "pip-vng-ap-001"
+}
+
+# public ip method for virtual network gateway
+variable "pip_vng_ap_001_allocation_method" {
+  description = "The type to alocate the public ip resource."
+  default     = "Static"
+}
+
+# public ip sku for virtual network gateway
+variable "pip_vng_ap_001_sku" {
+  description = "public ip sku for virtual network gateway"
   default     = "Standard"
 }
 

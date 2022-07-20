@@ -52,6 +52,72 @@ snet_ap_db_name = "snet-ap-hlg-db"
 # subnet address for database
 snet_ap_db_prefix = "10.5.0.0/24"
 
+# subnet name for virtual network vpn gateway
+snet_ap_vng_name = "GatewaySubnet"
+
+# subnet address for virtual network vpn gateway
+snet_ap_vng_prefix = "10.5.2.0/24"
+
+# virtual network gateway name
+vng_ap_001_name = "vng-ap-hlg-001"
+
+# virtual network gateway type
+vng_ap_001_type = "Vpn"
+
+# virtual network gateway vpn type
+vng_ap_001_vpn_type = "RouteBased"
+
+# virtual network gateway active active
+vng_ap_001_active_active = "false"
+
+# virtual network gateway enable bgp
+vng_ap_001_enable_bgp = "false"
+
+# virtual network gateway sku
+vng_ap_001_sku = "Basic"
+
+# virtual network gateway ip configuration name
+vng_ap_001_ic_name = "vng-ap-001-hlg-ic-name"
+
+# virtual network gateway ip configuration public ip allocation
+vng_ap_001_ic_pia = "Dynamic"
+
+# virtual network gateway vpn client configuration address
+vng_ap_001_vcc_address = ["10.7.0.0/24"]
+
+# virtual network gateway vpn client configuration root certificate name
+vng_ap_001_vcc_rc_name = "DigiCert-Federated-ID-Root-CA"
+
+# virtual network gateway vpn client configuration public cert data
+vng_ap_001_vcc_rc_data = <<EOF
+MIIDuzCCAqOgAwIBAgIQCHTZWCM+IlfFIRXIvyKSrjANBgkqhkiG9w0BAQsFADBn
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSYwJAYDVQQDEx1EaWdpQ2VydCBGZWRlcmF0ZWQgSUQg
+Um9vdCBDQTAeFw0xMzAxMTUxMjAwMDBaFw0zMzAxMTUxMjAwMDBaMGcxCzAJBgNV
+BAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdp
+Y2VydC5jb20xJjAkBgNVBAMTHURpZ2lDZXJ0IEZlZGVyYXRlZCBJRCBSb290IENB
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvAEB4pcCqnNNOWE6Ur5j
+QPUH+1y1F9KdHTRSza6k5iDlXq1kGS1qAkuKtw9JsiNRrjltmFnzMZRBbX8Tlfl8
+zAhBmb6dDduDGED01kBsTkgywYPxXVTKec0WxYEEF0oMn4wSYNl0lt2eJAKHXjNf
+GTwiibdP8CUR2ghSM2sUTI8Nt1Omfc4SMHhGhYD64uJMbX98THQ/4LMGuYegou+d
+GTiahfHtjn7AboSEknwAMJHCh5RlYZZ6B1O4QbKJ+34Q0eKgnI3X6Vc9u0zf6DH8
+Dk+4zQDYRRTqTnVO3VT8jzqDlCRuNtq6YvryOWN74/dq8LQhUnXHvFyrsdMaE1X2
+DwIDAQABo2MwYTAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNV
+HQ4EFgQUGRdkFnbGt1EWjKwbUne+5OaZvRYwHwYDVR0jBBgwFoAUGRdkFnbGt1EW
+jKwbUne+5OaZvRYwDQYJKoZIhvcNAQELBQADggEBAHcqsHkrjpESqfuVTRiptJfP
+9JbdtWqRTmOf6uJi2c8YVqI6XlKXsD8C1dUUaaHKLUJzvKiazibVuBwMIT84AyqR
+QELn3e0BtgEymEygMU569b01ZPxoFSnNXc7qDZBDef8WfqAV/sxkTi8L9BkmFYfL
+uGLOhRJOFprPdoDIUBB+tmCl3oDcBy3vnUeOEioz8zAkprcb3GHwHAK+vHmmfgcn
+WsfMLH4JCLa/tRYL+Rw/N3ybCkDp00s0WUZ+AoDywSl0Q/ZEnNY0MsFiw6LyIdbq
+M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
+EOF
+
+# virtual network gateway vpn client configuration revoke certificate name
+vng_ap_001_vcc_revc_name = "Verizon-Global-Root-CA"
+
+# virtual network gateway vpn client configuration revoke certificate thumb
+vng_ap_001_vcc_revc_thumb = "912198EEF23DCAC40939312FEE97DD560BAE49B1"
+
 # public ip name for application gateway
 pip_agw_ap_001_name = "pip-agw-ap-hlg-001"
 
@@ -60,6 +126,15 @@ pip_agw_ap_001_allocation_method = "Static"
 
 # public ip sku for application gateway
 pip_agw_ap_001_sku = "Standard"
+
+# public ip name for virtual network gateway
+pip_vng_ap_001_name = "pip-vng-ap-001"
+
+# public ip method for virtual network gateway
+pip_vng_ap_001_allocation_method = "Static"
+
+# public ip sku for virtual network gateway
+pip_vng_ap_001_sku = "Standard"
 
 # front door name
 fd_aulapp_name = "fd-hlg-aulapp"

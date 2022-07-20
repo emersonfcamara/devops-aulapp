@@ -88,6 +88,50 @@ resource "azurerm_virtual_network" "vnet" {
   ]
 }
 
+# virtual network gateway section
+resource "azurerm_virtual_network_gateway" "vng_ap_001" {
+  name                = "${var.vng_ap_001_name}"
+  location            = azurerm_resource_group.rg_infra.location
+  resource_group_name = azurerm_resource_group.rg_infra.name
+
+  type     = "${var.vng_ap_001_type}"
+  vpn_type = "${var.vng_ap_001_vpn_type}"
+
+  active_active = "${var.vng_ap_001_active_active}"
+  enable_bgp    = "${var.vng_ap_001_enable_bgp}"
+  sku           = "${var.vng_ap_001_sku}"
+
+  ip_configuration {
+    name                          = "${var.vng_ap_001_ic_name}"
+    public_ip_address_id          = azurerm_public_ip.pip_vng_ap_001.id
+    private_ip_address_allocation = "${var.vng_ap_001_ic_pia}"
+    subnet_id                     = azurerm_subnet.snet_ap_vgw.id
+  }
+
+  vpn_client_configuration {
+    address_space = "${var.vng_ap_001_vcc_address}"
+
+    root_certificate {
+      name = "${var.vng_ap_001_vcc_rc_name}"
+
+      public_cert_data = "${var.vng_ap_001_vcc_rc_data}"
+
+    }
+
+    revoked_certificate {
+      name       = "${var.vng_ap_001_vcc_revc_name}"
+      thumbprint = "${var.vng_ap_001_vcc_revc_thumb}"
+    }
+  }
+
+  depends_on = [
+    azurerm_resource_group.rg_infra,
+    azurerm_virtual_network.vnet,
+    azurerm_public_ip.pip_vng_ap_001,
+    azurerm_subnet.snet_ap_vgw
+  ]
+}
+
 # Next we'll build a subnet to run our VMs in. These variables can be defined 
 # via environment variables, a config file, or command line flags. Default 
 # values will be used if the user does not override them. You can find all the
@@ -129,6 +173,14 @@ resource "azurerm_subnet" "snet_ap_db" {
   ]
 }
 
+# azure vpn point to site
+resource "azurerm_subnet" "snet_ap_vgw" {
+  name                 = "${var.snet_ap_vng_name}"
+  resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
+  virtual_network_name = "${azurerm_virtual_network.vnet.name}"
+  address_prefixes     = "${var.snet_ap_vng_prefix}"
+}
+
 # Every Azure Virtual Machine comes with a private IP address. You can also 
 # optionally add a public IP address for Internet-facing applications and 
 # demo environments like this one.
@@ -138,6 +190,19 @@ resource "azurerm_public_ip" "pip_agw_ap_001" {
   resource_group_name          = "${azurerm_resource_group.rg_infra.name}"
   allocation_method            = "${var.pip_agw_ap_001_allocation_method}"
   sku                          = "${var.pip_agw_ap_001_sku}"
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
+}
+
+# public ip for virtual network gateway
+resource "azurerm_public_ip" "pip_vng_ap_001" {
+  name                = "${var.pip_vng_ap_001_name}"
+  location            = "${var.location}"
+  resource_group_name = "${azurerm_resource_group.rg_infra.name}"
+  allocation_method   = "${var.pip_vng_ap_001_allocation_method}"
+  sku                 = "${var.pip_agw_ap_001_sku}"
 
   depends_on = [
     azurerm_resource_group.rg_infra
