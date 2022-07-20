@@ -118,10 +118,10 @@ resource "azurerm_virtual_network_gateway" "vng_ap_001" {
 
     }
 
-    revoked_certificate {
-      name       = "${var.vng_ap_001_vcc_revc_name}"
-      thumbprint = "${var.vng_ap_001_vcc_revc_thumb}"
-    }
+    # revoked_certificate {
+    #   name       = "${var.vng_ap_001_vcc_revc_name}"
+    #   thumbprint = "${var.vng_ap_001_vcc_revc_thumb}"
+    # }
   }
 
   depends_on = [
@@ -174,11 +174,11 @@ resource "azurerm_subnet" "snet_ap_db" {
 }
 
 # azure vpn point to site
-resource "azurerm_subnet" "snet_ap_vgw" {
+resource "azurerm_subnet" "snet_ap_vng" {
   name                 = "${var.snet_ap_vng_name}"
   resource_group_name  = "${azurerm_resource_group.rg_infra.name}"
   virtual_network_name = "${azurerm_virtual_network.vnet.name}"
-  address_prefixes     = "${var.snet_ap_vng_prefix}"
+  address_prefixes     = ["${var.snet_ap_vng_prefix}"]
 }
 
 # Every Azure Virtual Machine comes with a private IP address. You can also 
