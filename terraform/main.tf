@@ -873,7 +873,7 @@ resource "azurerm_servicebus_queue" "sbs_enrich_uat" {
   dead_lettering_on_message_expiration = "${var.sbs_enrich_uat_dlq}"
 
   depends_on = [
-    azurerm_servicebus_namespace
+    azurerm_servicebus_namespace.sb_ap_001
   ]
 }
 
@@ -885,7 +885,7 @@ resource "azurerm_servicebus_queue" "sbs_file_integration_uat" {
   dead_lettering_on_message_expiration = "${var.sbs_file_integration_uat_dlq}"
 
   depends_on = [
-    azurerm_servicebus_namespace
+    azurerm_servicebus_namespace.sb_ap_001
   ]
 }
 
@@ -897,7 +897,7 @@ resource "azurerm_servicebus_queue" "sbs_magento_integration_uat" {
   dead_lettering_on_message_expiration = "${var.sbs_magento_integration_uat_dlq}"
 
   depends_on = [
-    azurerm_servicebus_namespace
+    azurerm_servicebus_namespace.sb_ap_001
   ]
 }
 
@@ -909,7 +909,7 @@ resource "azurerm_servicebus_queue" "sbs_notification_online_uat" {
   dead_lettering_on_message_expiration = "${var.sbs_notification_online_uat_dlq}"
 
   depends_on = [
-    azurerm_servicebus_namespace
+    azurerm_servicebus_namespace.sb_ap_001
   ]
 }
 
