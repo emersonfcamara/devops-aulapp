@@ -124,7 +124,7 @@ pip_agw_ap_001_allocation_method = "Static"
 pip_agw_ap_001_sku = "Standard"
 
 # public ip name for virtual network gateway
-pip_vng_ap_001_name = "pip-vng-ap-001"
+pip_vng_ap_001_name = "pip-vng-ap-hlg-001"
 
 # public ip method for virtual network gateway
 pip_vng_ap_001_allocation_method = "Static"
