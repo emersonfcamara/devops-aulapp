@@ -180,6 +180,10 @@ resource "azurerm_subnet" "snet_ap_vng" {
   resource_group_name  = azurerm_resource_group.rg_infra.name
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = ["${var.snet_ap_vng_prefix}"]
+
+  depends_on = [
+    azurerm_resource_group.rg_infra
+  ]
 }
 
 # Every Azure Virtual Machine comes with a private IP address. You can also 
@@ -418,6 +422,10 @@ resource "azurerm_mysql_firewall_rule" "mysql_001_azuresvc" {
   server_name         = azurerm_mysql_server.mysql_001.name
   start_ip_address    = "0.0.0.0"
   end_ip_address      = "0.0.0.0"
+
+  depends_on = [
+    azurerm_mysql_server.mysql_001
+  ]
 }
 
 # end o mysql section
@@ -863,6 +871,10 @@ resource "azurerm_servicebus_queue" "sbs_enrich_uat" {
 
   enable_partitioning = "${var.sbs_enrich_uat_ep}"
   dead_lettering_on_message_expiration = "${var.sbs_enrich_uat_dlq}"
+
+  depends_on = [
+    azurerm_servicebus_namespace
+  ]
 }
 
 resource "azurerm_servicebus_queue" "sbs_file_integration_uat" {
@@ -871,6 +883,10 @@ resource "azurerm_servicebus_queue" "sbs_file_integration_uat" {
 
   enable_partitioning = "${var.sbs_file_integration_uat_ep}"
   dead_lettering_on_message_expiration = "${var.sbs_file_integration_uat_dlq}"
+
+  depends_on = [
+    azurerm_servicebus_namespace
+  ]
 }
 
 resource "azurerm_servicebus_queue" "sbs_magento_integration_uat" {
@@ -879,6 +895,10 @@ resource "azurerm_servicebus_queue" "sbs_magento_integration_uat" {
 
   enable_partitioning = "${var.sbs_magento_integration_uat_ep}"
   dead_lettering_on_message_expiration = "${var.sbs_magento_integration_uat_dlq}"
+
+  depends_on = [
+    azurerm_servicebus_namespace
+  ]
 }
 
 resource "azurerm_servicebus_queue" "sbs_notification_online_uat" {
@@ -887,6 +907,10 @@ resource "azurerm_servicebus_queue" "sbs_notification_online_uat" {
 
   enable_partitioning = "${var.sbs_notification_online_uat_ep}"
   dead_lettering_on_message_expiration = "${var.sbs_notification_online_uat_dlq}"
+
+  depends_on = [
+    azurerm_servicebus_namespace
+  ]
 }
 
 # end of service bus section
