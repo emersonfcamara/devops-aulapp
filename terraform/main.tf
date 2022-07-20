@@ -128,7 +128,7 @@ resource "azurerm_virtual_network_gateway" "vng_ap_001" {
     azurerm_resource_group.rg_infra,
     azurerm_virtual_network.vnet,
     azurerm_public_ip.pip_vng_ap_001,
-    azurerm_subnet.snet_ap_vgw
+    azurerm_subnet.snet_ap_vng
   ]
 }
 
