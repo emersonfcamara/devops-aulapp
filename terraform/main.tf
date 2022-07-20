@@ -105,7 +105,7 @@ resource "azurerm_virtual_network_gateway" "vng_ap_001" {
     name                          = "${var.vng_ap_001_ic_name}"
     public_ip_address_id          = azurerm_public_ip.pip_vng_ap_001.id
     private_ip_address_allocation = "${var.vng_ap_001_ic_pia}"
-    subnet_id                     = azurerm_subnet.snet_ap_vgw.id
+    subnet_id                     = azurerm_subnet.snet_ap_vng.id
   }
 
   vpn_client_configuration {
