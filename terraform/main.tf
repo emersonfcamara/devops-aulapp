@@ -475,11 +475,12 @@ resource "azurerm_monitor_smart_detector_alert_rule" "sdar_app_001" {
 # kubernetes section
 
 resource "azurerm_kubernetes_cluster" "aks_ap_001" {
-  name                = "${var.aks_ap_001_name}"
-  location            = "${var.location}"
-  resource_group_name = "${azurerm_resource_group.rg_application.name}"
-  dns_prefix          = "${var.aks_ap_001_dns_prefix}"
-  kubernetes_version  = "${var.aks_ap_001_version}"
+  name                    = "${var.aks_ap_001_name}"
+  location                = "${var.location}"
+  resource_group_name     = "${azurerm_resource_group.rg_application.name}"
+  dns_prefix              = "${var.aks_ap_001_dns_prefix}"
+  kubernetes_version      = "${var.aks_ap_001_version}"
+  private_cluster_enabled = "${var.aks_ap_001_private}"
   
 
   default_node_pool {

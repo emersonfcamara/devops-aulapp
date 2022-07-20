@@ -632,6 +632,12 @@ variable "aks_ap_001_version" {
   default     = "1.21.2"
 }
 
+# kubernetes private cluster
+variable "aks_ap_001_private" {
+  description = "The kubernetes is private"
+  default     = "true"
+}
+
 # kubernetes node pool name
 variable "aks_ap_001_npn" {
   description = "The kubernetes node pool name"

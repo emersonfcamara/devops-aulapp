@@ -331,6 +331,9 @@ aks_ap_001_dns_prefix = "aks-ap-hlg-001"
 # kubernetes version
 aks_ap_001_version = "1.22.6"
 
+# kubernetes private cluster
+aks_ap_001_private = "true"
+
 # kubernetes node pool name
 aks_ap_001_npn = "default"
 
