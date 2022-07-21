@@ -578,8 +578,7 @@ resource "azurerm_kubernetes_cluster" "aks_ap_001" {
     azurerm_application_insights.appi_ap_001,
     azurerm_user_assigned_identity.aks_ap_001_id,
     azurerm_subnet.snet_ap_aks,
-    azurerm_application_gateway.agw_ap_001,
-    azurerm_container_registry.acr_ap_001
+    azurerm_application_gateway.agw_ap_001
   ]
 }
 
