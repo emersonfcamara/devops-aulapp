@@ -419,6 +419,25 @@ aks_ap_001_identity_type = "UserAssigned"
 
 # end of kubernenetes section
 
+# container registry section
+
+# container registry name
+acr_ap_001_name = "acrapphlg001"
+
+# container registry sku
+acr_ap_001_sku = "Standard"
+
+# end of container registry section
+
+# azure role assignment section
+# azure role assignment definition name
+ara_ap_001_role_def = "AcrPull"
+
+# azure role assignment definition skip check AAD principal
+ara_ap_001_role_def = "true"
+
+# end of azure role assigment section
+
 # azure function app section
 # azure storage name
 st_function_001_name = "stfuncaulapphlg001"

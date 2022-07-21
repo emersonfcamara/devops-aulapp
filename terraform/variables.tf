@@ -799,6 +799,37 @@ variable "aks_ap_001_identity_type" {
 
 # end of kubernenetes section
 
+# container registry section
+
+# container registry name
+variable "acr_ap_001_name" {
+  description = "The container registry name"
+  default     = "acrapp001"
+}
+
+# container registry sku
+variable "acr_ap_001_sku" {
+  description = "The container registry sku"
+  default     = "Standard"
+}
+
+# end of container registry section
+
+# azure role assignment section
+# azure role assignment definition name
+variable "ara_ap_001_role_def" {
+  description = "Theazure role assignment definition name"
+  default     = "AcrPull"
+}
+
+# azure role assignment definition skip check AAD principal
+variable "ara_ap_001_role_def" {
+  description = "The azure role assignment definition skip check AAD principal"
+  default     = "true"
+}
+
+# end of azure role assigment section
+
 # azure function app section
 # azure storage name
 variable "st_function_001_name" {
