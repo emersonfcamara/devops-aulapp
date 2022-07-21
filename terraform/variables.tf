@@ -823,7 +823,7 @@ variable "ara_ap_001_role_def" {
 }
 
 # azure role assignment definition skip check AAD principal
-variable "ara_ap_001_role_def" {
+variable "ara_ap_001_role_aad_check" {
   description = "The azure role assignment definition skip check AAD principal"
   default     = "true"
 }

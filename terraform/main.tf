@@ -606,7 +606,7 @@ resource "azurerm_role_assignment" "ara_ap_001" {
   principal_id                     = azurerm_kubernetes_cluster.aks_ap_001.kubelet_identity[0].object_id
   role_definition_name             = "${var.ara_ap_001_role_def}"
   scope                            = azurerm_container_registry.acr_ap_001.id
-  skip_service_principal_aad_check = "${var.ara_ap_001_role_def}"
+  skip_service_principal_aad_check = "${var.ara_ap_001_role_aad_check}"
 
   depends_on = [
     azurerm_resource_group.rg_application,

@@ -434,7 +434,7 @@ acr_ap_001_sku = "Standard"
 ara_ap_001_role_def = "AcrPull"
 
 # azure role assignment definition skip check AAD principal
-ara_ap_001_role_def = "true"
+ara_ap_001_role_aad_check = "true"
 
 # end of azure role assigment section
 
