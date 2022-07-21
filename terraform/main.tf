@@ -555,6 +555,7 @@ resource "azurerm_kubernetes_cluster" "aks_ap_001" {
   dns_prefix              = "${var.aks_ap_001_dns_prefix}"
   kubernetes_version      = "${var.aks_ap_001_version}"
   private_cluster_enabled = "${var.aks_ap_001_private}"
+  api_server_authorized_ip_ranges = azurerm_virtual_network.vnet.address_space
   
 
   default_node_pool {
