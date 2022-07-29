@@ -353,6 +353,18 @@ resource "azurerm_application_gateway" "agw_ap_001" {
     azurerm_subnet.snet_ap_agw,
     azurerm_public_ip.pip_agw_ap_001
   ]
+
+  lifecycle {
+    ignore_changes = [
+      # ignore changes to delegation as these seem to happen almost every deployment due to Azure configs
+      tags,
+      backend_address_pool,
+      backend_http_settings,
+      http_listener,
+      probe,
+      request_routing_rule
+    ]
+  }
 }
 
 # end of network section
