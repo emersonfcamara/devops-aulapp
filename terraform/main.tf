@@ -224,6 +224,12 @@ resource "azurerm_storage_account" "stamedia" {
   depends_on = [
     azurerm_resource_group.rg_infra
   ]
+
+  lifecycle{
+    ignore_changes = [
+      static_website
+    ]
+  }
 }
 
 resource "azurerm_storage_account" "staspa" {
@@ -236,6 +242,12 @@ resource "azurerm_storage_account" "staspa" {
   depends_on = [
     azurerm_resource_group.rg_infra
   ]
+
+  lifecycle{
+    ignore_changes = [
+      static_website
+    ]
+  }
 }
 
 # Azure Front Door
@@ -289,6 +301,16 @@ resource "azurerm_frontdoor" "fd_aulapp" {
   depends_on = [
     azurerm_resource_group.rg_infra
   ]
+
+  lifecycle{
+    ignore_changes = [
+      backend_pool,
+      backend_pool_health_probe,
+      backend_pool_load_balancing,
+      frontend_endpoint,
+      routing_rule
+    ]
+  }
 }
 
 # end of Azure Front Door
