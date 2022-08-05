@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: kong-1659397814-kong
+  name: kong-svc
+  namespace: kong
+spec:
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  selector:
+    app: kong-1659397814-kong
